@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Sarah Johnson",
+        "position": "CEO, Tech Innovators",
+        "quote": "Working with Job Flow was a game-changer for our business. Their professionalism exceeded all our expectations.",
+        "image": "https:\/\/picsum.photos\/100\/100?random=11"
+    },
+    {
+        "name": "Mark Davis",
+        "position": "Founder, Creative Co.",
+        "quote": "The team is incredibly dedicated and delivered a fantastic product on time. We couldn't be happier with the results.",
+        "image": "https:\/\/picsum.photos\/100\/100?random=12"
+    },
+    {
+        "name": "Emily White",
+        "position": "Director, Global Solutions",
+        "quote": "An exceptional partner from start to finish. Their deep understanding of our needs made the entire process seamless.",
+        "image": "https:\/\/picsum.photos\/100\/100?random=13"
+    },
+    {
+        "name": "Farai Rudzi",
+        "position": "Software Developer, ZRP",
+        "quote": "This is fantastic. Keep it up",
+        "image": "https:\/\/via.placeholder.com\/100"
+    },
+    {
+        "name": "Jussy Nyamuwana",
+        "position": "Network Engineer",
+        "quote": "Never before I have seen this before",
+        "image": "https:\/\/via.placeholder.com\/100"
+    }
+]
