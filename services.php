@@ -1,191 +1,266 @@
-<?php
-    $page_title  = 'Our Services - Job Flow';
-    $currentPage = 'services';
-    require_once 'config.php';
-    require_once 'includes/header.php';
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Job Flow</title>
+    <!-- Bootstrap CSS for grid system and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Custom and overridden styles -->
+    <style>
+        :root {
+            --primary-color: #007bff; /* Example primary color */
+            --accent-color: #28a745; /* Example accent color */
+            --dark-text: #343a40; /* Example dark text color */
+            --light-bg: #f8f9fa; /* Example light background color */
+            --white: #ffffff; /* Example white color */
+            --border-color: #dee2e6; /* Example border color */
+        }
+        
+        .page-header {
+            background-color: var(--light-bg);
+            padding: 4rem 0;
+        }
 
-<style>
-/* Additional or overridden styles to be merged with your main CSS file */
-.services-intro-section {
-    padding: 3rem 0;
-    text-align: center;
-}
-.service-icon-lg {
-    font-size: 8rem;
-    color: var(--primary-color);
-    opacity: 0.1;
-}
-.service-list {
-    list-style: none;
-    padding: 0;
-}
-.service-list li {
-    padding-left: 1.5rem;
-    position: relative;
-    margin-bottom: 0.75rem;
-    font-size: 1rem;
-    color: var(--dark-text);
-}
-.service-list li strong {
-    color: var(--primary-color);
-}
-.service-list li::before {
-    content: '\f054'; /* Font Awesome right-arrow icon */
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    color: var(--accent-color);
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 0.8rem;
-}
-.service-detail-section:nth-of-type(even) {
-    background-color: var(--light-bg);
-}
+        .page-header h1 {
+            color: var(--primary-color);
+        }
 
-.process-card .icon-box {
-    font-size: 2rem;
-    width: 60px;
-    height: 60px;
-    background: var(--primary-color);
-    color: var(--white);
-    border-radius: 50%;
-    margin: 0 auto 1rem;
-}
+        .section {
+            padding: 5rem 0;
+        }
 
-/* New styles for benefit cards */
-.benefit-card {
-    border: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.benefit-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
-}
-.benefit-icon {
-    color: var(--primary-color);
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+        }
 
-/* Creative Talent Acquisition Section Styles */
-.timeline-container {
-    position: relative;
-    padding: 20px 0;
-    list-style: none;
-}
-.timeline-container:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 3px;
-    background-color: var(--primary-color);
-    margin-left: -1.5px;
-}
-.timeline-item {
-    position: relative;
-    width: 50%;
-    margin-bottom: 30px;
-}
-.timeline-item:nth-child(even) {
-    left: 50%;
-    padding-left: 30px;
-}
-.timeline-item:nth-child(odd) {
-    padding-right: 30px;
-    text-align: right;
-}
-.timeline-badge {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    color: var(--white);
-    text-align: center;
-    line-height: 50px;
-    margin-left: -25px;
-    z-index: 100;
-}
-.timeline-panel {
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    padding: 20px;
-    background-color: var(--white);
-    position: relative;
-}
-.timeline-panel:before {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 15px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent var(--border-color) transparent transparent;
-}
-.timeline-item:nth-child(odd) .timeline-panel:before {
-    right: -20px;
-    border-left-width: 0;
-    border-right-width: 20px;
-}
-.timeline-item:nth-child(even) .timeline-panel:before {
-    left: -20px;
-    border-right-width: 0;
-    border-left-width: 20px;
-}
-.timeline-title {
-    margin-top: 0;
-    color: var(--primary-color);
-}
-@media (max-width: 767px) {
-    .timeline-container:before {
-        left: 12px;
-    }
-    .timeline-item, .timeline-item:nth-child(even) {
-        width: 100%;
-        padding-left: 40px;
-        left: 0;
-    }
-    .timeline-item:nth-child(odd) {
-        text-align: left;
-    }
-    .timeline-badge {
-        left: 0;
-        margin-left: 0;
-    }
-    .timeline-item:nth-child(odd) .timeline-panel:before,
-    .timeline-item:nth-child(even) .timeline-panel:before {
-        left: 20px;
-        right: auto;
-        border-color: transparent var(--border-color) transparent transparent;
-        border-left-width: 20px;
-        border-right-width: 0;
-    }
-}
+        .section-subtitle {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
 
-.service-list-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-.service-item, .industry-item {
-    text-align: center;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: var(--light-bg);
-}
-.industries-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-</style>
+        .services-intro-section {
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .service-icon-lg {
+            font-size: 8rem;
+            color: var(--primary-color);
+            opacity: 0.1;
+        }
+        .service-list {
+            list-style: none;
+            padding: 0;
+        }
+        .service-list li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            color: var(--dark-text);
+        }
+        .service-list li strong {
+            color: var(--primary-color);
+        }
+        .service-list li::before {
+            content: '\f054'; /* Font Awesome right-arrow icon */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+        }
+        .service-detail-section:nth-of-type(even) {
+            background-color: var(--light-bg);
+        }
+
+        .process-card .icon-box {
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* New styles for benefit cards */
+        .benefit-card {
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+        }
+        .benefit-icon {
+            color: var(--primary-color);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Creative Talent Acquisition Section Styles */
+        .timeline-container {
+            position: relative;
+            padding: 20px 0;
+            list-style: none;
+        }
+        .timeline-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background-color: var(--primary-color);
+            margin-left: -1.5px;
+        }
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            margin-bottom: 30px;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 30px;
+        }
+        .timeline-item:nth-child(odd) {
+            padding-right: 30px;
+            text-align: right;
+        }
+        .timeline-badge {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            line-height: 50px;
+            margin-left: -25px;
+            z-index: 100;
+        }
+        .timeline-panel {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 20px;
+            background-color: var(--white);
+            position: relative;
+        }
+        .timeline-panel:before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 15px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent var(--border-color) transparent transparent;
+        }
+        .timeline-item:nth-child(odd) .timeline-panel:before {
+            right: -20px;
+            border-left-width: 0;
+            border-right-width: 20px;
+        }
+        .timeline-item:nth-child(even) .timeline-panel:before {
+            left: -20px;
+            border-right-width: 0;
+            border-left-width: 20px;
+        }
+        .timeline-title {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        @media (max-width: 767px) {
+            .timeline-container:before {
+                left: 12px;
+            }
+            .timeline-item, .timeline-item:nth-child(even) {
+                width: 100%;
+                padding-left: 40px;
+                left: 0;
+            }
+            .timeline-item:nth-child(odd) {
+                text-align: left;
+            }
+            .timeline-badge {
+                left: 0;
+                margin-left: 0;
+            }
+            .timeline-item:nth-child(odd) .timeline-panel:before,
+            .timeline-item:nth-child(even) .timeline-panel:before {
+                left: 20px;
+                right: auto;
+                border-color: transparent var(--border-color) transparent transparent;
+                border-left-width: 20px;
+                border-right-width: 0;
+            }
+        }
+
+        .service-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .sub-service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .sub-service-item {
+            text-align: center;
+        }
+        .sub-service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .sub-service-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .service-item, .industry-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: var(--light-bg);
+        }
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .services-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .service-card {
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
+        }
+    </style>
+</head>
+<body>
 
 <section class="page-header">
   <div class="container text-center">
@@ -208,7 +283,7 @@
     <div class="container">
         <h2 class="section-title text-center">Find the Right Talent to Drive Your Success</h2>
         <p class="lead mb-5 mx-auto text-center" style="max-width: 700px;">
-            Our expert Talent Acquisition service provides comprehensive recruitment and staffing solutions, helping you build a stronger team and a more successful business.
+          Our expert Talent Acquisition service provides comprehensive recruitment and staffing solutions, helping you build a stronger team and a more successful business.
         </p>
         <div class="row text-center">
             <div class="col-md-4 mb-4">
@@ -375,7 +450,7 @@
                 <h3 class="sub-service-title">IT Support System</h3>
                 <p>Providing technical assistance and support for an organization's IT infrastructure.</p>
             </div>
-             <div class="sub-service-item">
+            <div class="sub-service-item">
                 <i class="sub-service-icon fas fa-code"></i>
                 <h3 class="sub-service-title">Programming & Coding</h3>
                 <p>Creating custom code for specific applications, tools, or software to meet your unique business needs.</p>
@@ -695,27 +770,16 @@
       <div class="service-card process-card">
         <i class="fas fa-cogs icon-box"></i>
         <h5>Strategy & Team Building</h5>
-        <p class="text-muted small">We develop a tailored strategy and assemble a dedicated team for your project.</p>
+        <p class="text-muted small">We develop a customized strategy and build the right team for your needs.</p>
       </div>
       <div class="service-card process-card">
-        <i class="fas fa-rocket icon-box"></i>
-        <h5>Launch & Support</h5>
-        <p class="text-muted small">We integrate seamlessly with your team, providing ongoing support for success.</p>
+        <i class="fas fa-handshake icon-box"></i>
+        <h5>Partnership & Growth</h5>
+        <p class="text-muted small">We partner with you for long-term success and continued business growth.</p>
       </div>
     </div>
   </div>
 </section>
 
-<hr>
-
-<section class="banner">
-  <div class="container text-center">
-    <h2>Have a Specific Need?</h2>
-    <p class="lead my-3">Let's discuss how we can create a custom solution to perfectly fit your business requirements.</p>
-    <a href="about_us.php#contact" class="btn btn-light btn-lg cta-banner">Get a Free Quote</a>
-  </div>
-</section>
-
-<?php
-    require_once 'includes/footer.php';
-?>
+</body>
+</html>

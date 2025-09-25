@@ -5,122 +5,108 @@
     require_once 'includes/header.php';
 ?>
 
-<style>
-/* Specific styles for the Finance & Accounting page */
-.section {
-    padding: 60px 0;
-}
-.sub-service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-.sub-service-item {
-    text-align: center;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: var(--clr-primary-light);
-}
-.sub-service-icon {
-    font-size: 2.5rem;
-    color: var(--clr-primary);
-    margin-bottom: 1rem;
-}
+<!-- Banner Section -->
+<section class="bg-[#5a8bd5] py-16 text-center">
+    <div class="container mx-auto px-6 max-w-7xl">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">Financial and Accounting Services</h1>
+        <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">Our finance and accounting services help businesses manage their financial operations efficiently and effectively, from payroll to financial analysis.</p>
+    </div>
+</section>
 
-/* Updated Benefit Cards to match the provided format */
-.cards-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-.minimal-card {
-    background: var(--clr-primary-light);
-    border: 1px solid var(--clr-border);
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 20px;
-}
-.minimal-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-}
-.minimal-card .card-body {
-    padding: var(--space-xl) var(--space-lg);
-}
-.minimal-card .card-icon {
-    font-size: 3.5rem;
-    color: var(--clr-accent);
-    margin-bottom: var(--space-md);
-    transition: color 0.3s ease;
-}
-.minimal-card:hover .card-icon {
-    color: var(--clr-primary-dark);
-}
-.minimal-card .card-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--clr-primary-dark);
-    margin-bottom: var(--space-xs);
-}
-.minimal-card .card-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--clr-text-light);
-}
-</style>
-
-<section class="section service-detail-section">
-    <div class="container">
-        <h2>Financial and Accounting Services</h2>
-        <p class="lead">Our finance and accounting services help businesses manage their financial operations efficiently and effectively, from payroll to financial analysis.</p>
-        <div class="sub-service-grid">
-            <div class="sub-service-item">
-                <i class="sub-service-icon fas fa-file-invoice-dollar"></i>
-                <h3 class="sub-service-title">Payroll Processing</h3>
-                <p>Ensuring employees are paid accurately and on time, with full tax compliance and benefits administration.</p>
+<!-- Core Financial Services Section -->
+<section class="py-16">
+    <div class="container mx-auto px-6 max-w-7xl">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-[#072a50]">Our Financial Solutions</h2>
+            <p class="text-lg text-gray-600 mx-auto max-w-3xl mt-4">We provide end-to-end financial management to ensure accuracy and compliance.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1: Payroll Processing -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up">
+                <div class="w-20 h-20 rounded-full mx-auto mb-5 flex items-center justify-center bg-blue-100 text-[#077cf8] text-3xl">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                </div>
+                <h3 class="text-xl font-bold text-[#072a50] mb-2">Payroll Processing</h3>
+                <p class="text-gray-600 text-sm">Ensuring employees are paid accurately and on time, with full tax compliance and benefits administration.</p>
             </div>
-            <div class="sub-service-item">
-                <i class="sub-service-icon fas fa-calculator"></i>
-                <h3 class="sub-service-title">Accounting and Bookkeeping</h3>
-                <p>Providing accurate financial record-keeping and reporting, including accounts payable/receivable.</p>
+            <!-- Card 2: Accounting & Bookkeeping -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-20 h-20 rounded-full mx-auto mb-5 flex items-center justify-center bg-blue-100 text-[#077cf8] text-3xl">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3 class="text-xl font-bold text-[#072a50] mb-2">Accounting & Bookkeeping</h3>
+                <p class="text-gray-600 text-sm">Providing accurate financial record-keeping and reporting, including accounts payable/receivable.</p>
             </div>
-            <div class="sub-service-item">
-                <i class="sub-service-icon fas fa-chart-bar"></i>
-                <h3 class="sub-service-title">Financial Analysis & Planning</h3>
-                <p>Offering insights, budgeting, and strategic planning to help you make informed decisions about your financial future.</p>
+            <!-- Card 3: Financial Analysis -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-20 h-20 rounded-full mx-auto mb-5 flex items-center justify-center bg-blue-100 text-[#077cf8] text-3xl">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3 class="text-xl font-bold text-[#072a50] mb-2">Financial Analysis & Planning</h3>
+                <p class="text-gray-600 text-sm">Offering insights, budgeting, and strategic planning to help you make informed financial decisions.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section">
-    <div class="container">
-        <div class="cards-row text-center">
-            <div class="card h-100 minimal-card">
-                <div class="card-body">
-                    <i class="fas fa-check-circle card-icon"></i>
-                    <h4 class="card-title">Improved Accuracy</h4>
-                    <p class="card-text text-muted">Our expert team ensures accurate and timely financial reporting, reducing the risk of costly errors.</p>
-                </div>
+<!-- REFACTORED Benefits Section -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6 max-w-7xl space-y-20">
+        <div class="text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-[#072a50]">The Benefits of Our Financial Services</h2>
+        </div>
+
+        <!-- Benefit 1: Improved Accuracy -->
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+            <div data-aos="fade-right">
+                <img src="<?= BASE_URL ?>images/accuracy.jpg" alt="Financial documents being reviewed for accuracy" class="rounded-2xl shadow-lg w-full h-auto">
             </div>
-            <div class="card h-100 minimal-card">
-                <div class="card-body">
-                    <i class="fas fa-dollar-sign card-icon"></i>
-                    <h4 class="card-title">Reduced Costs</h4>
-                    <p class="card-text text-muted">Streamlining your financial operations helps lower labor, infrastructure, and training costs.</p>
-                </div>
+            <div class="space-y-4" data-aos="fade-left">
+                <h3 class="text-3xl font-bold text-[#072a50]">Improved Accuracy</h3>
+                <p class="text-lg text-gray-600 leading-relaxed">Our expert team leverages proven processes and technology to ensure accurate and timely financial reporting. This meticulous attention to detail reduces the risk of costly errors and ensures full compliance.</p>
             </div>
-            <div class="card h-100 minimal-card">
-                <div class="card-body">
-                    <i class="fas fa-lightbulb card-icon"></i>
-                    <h4 class="card-title">Informed Decisions</h4>
-                    <p class="card-text text-muted">With clear financial analysis and planning, you can make smarter decisions about your business's future.</p>
-                </div>
+        </div>
+
+        <!-- Benefit 2: Reduced Costs -->
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+            <div class="space-y-4 order-2 md:order-1" data-aos="fade-right">
+                <h3 class="text-3xl font-bold text-[#072a50]">Reduced Costs</h3>
+                <p class="text-lg text-gray-600 leading-relaxed">By outsourcing your financial operations, you can significantly lower overhead. Save on labor, infrastructure, and expensive accounting software, directly improving your bottom line.</p>
+            </div>
+            <div class="order-1 md:order-2" data-aos="fade-left">
+                <img src="<?= BASE_URL ?>images/financial-costs.jpg" alt="Piggy bank symbolizing reduced costs" class="rounded-2xl shadow-lg w-full h-auto">
+            </div>
+        </div>
+
+        <!-- Benefit 3: Informed Decisions -->
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+            <div data-aos="fade-right">
+                <img src="<?= BASE_URL ?>images/decisions.jpg" alt="Business leader making an informed decision with charts" class="rounded-2xl shadow-lg w-full h-auto">
+            </div>
+            <div class="space-y-4" data-aos="fade-left">
+                <h3 class="text-3xl font-bold text-[#072a50]">Informed Decisions</h3>
+                <p class="text-lg text-gray-600 leading-relaxed">Gain a clearer picture of your company's financial health. With our clear financial analysis, forecasting, and strategic planning, you can make smarter, data-driven decisions about your business's future.</p>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Include CTA Banner for consistency -->
+<section class="bg-[#077cf8] text-white py-16 text-center">
+    <div class="container mx-auto px-6 max-w-7xl">
+        <h2 class="text-4xl font-bold mb-4">Ready to Strengthen Your Finances?</h2>
+        <p class="text-lg mx-auto max-w-2xl my-4 opacity-90">Let's talk about how our financial and accounting services can improve your accuracy and reduce costs. Get a free consultation today.</p>
+        <a href="contact.php#contact" class="inline-block px-8 py-3 bg-white text-[#077cf8] font-bold rounded-full shadow-lg hover:bg-[#e66a33] transition-all duration-300 transform hover:-translate-y-1">Get a Free Consultation</a>
+    </div>
+</section>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
 
 <?php
     require_once 'includes/footer.php';

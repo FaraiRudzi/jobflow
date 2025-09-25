@@ -1,11 +1,5 @@
 [
     {
-        "name": "Sarah Johnson",
-        "position": "CEO, Tech Innovators",
-        "quote": "Working with Job Flow was a game-changer for our business. Their professionalism exceeded all our expectations.",
-        "image": "https:\/\/picsum.photos\/100\/100?random=11"
-    },
-    {
         "name": "Mark Davis",
         "position": "Founder, Creative Co.",
         "quote": "The team is incredibly dedicated and delivered a fantastic product on time. We couldn't be happier with the results.",
@@ -27,6 +21,12 @@
         "name": "Jussy Nyamuwana",
         "position": "Network Engineer",
         "quote": "Never before I have seen this before",
+        "image": "https:\/\/via.placeholder.com\/100"
+    },
+    {
+        "name": "Farai Rudzi",
+        "position": "Network Engineer",
+        "quote": "Good work",
         "image": "https:\/\/via.placeholder.com\/100"
     }
 ]
