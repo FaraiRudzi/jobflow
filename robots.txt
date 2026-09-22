@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /PHPMailer/
+Disallow: /includes/
+Disallow: /config.php
+Disallow: /send_mail.php
+Disallow: /submit_testimonial.php
+
+# Set JOBFLOW_SITE_URL in production and submit this sitemap URL to Google Search Console.
+Sitemap: /sitemap.php
