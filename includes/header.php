@@ -119,13 +119,13 @@ $socialImage = $siteUrl . '/images/logo1.png';
                             x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
                             class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-white shadow-lg rounded-md overflow-hidden z-10 border border-gray-100"
                             x-cloak>
-                            <li><a href="dental_services.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">Dental Services</a></li>
-                            <li><a href="talent_acquisition.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">Talent Acquisition</a></li>
-                            <li><a href="it_services.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">IT Services</a></li>
-                            <li><a href="finance_accounting.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">Finance & Accounting</a></li>
-                            <li><a href="bpo.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">BPO Services</a></li>
-                            <li><a href="customer_support.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">Customer Support</a></li>
-                            <li><a href="other_services.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">Other Services</a></li>
+                            <li><a href="<?php echo BASE_URL; ?>dental_services.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">Dental Services</a></li>
+                            <li><a href="<?php echo BASE_URL; ?>talent_acquisition.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">Talent Acquisition</a></li>
+                            <li><a href="<?php echo BASE_URL; ?>it_services.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">IT Services</a></li>
+                            <li><a href="<?php echo BASE_URL; ?>finance_accounting.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">Finance & Accounting</a></li>
+                            <li><a href="<?php echo BASE_URL; ?>bpo.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">BPO Services</a></li>
+                            <li><a href="<?php echo BASE_URL; ?>customer_support.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">Customer Support</a></li>
+                            <li><a href="<?php echo BASE_URL; ?>other_services.php" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-blue-600 transition-colors duration-200">Other Services</a></li>
                         </ul>
                     </li>
                     <li><a href="<?php echo BASE_URL; ?>team.php" class="font-semibold text-gray-600 hover:text-blue-600 transition-colors duration-200 <?php echo ($currentPage === 'team') ? 'text-blue-600' : ''; ?>" <?php echo ($currentPage === 'team') ? 'aria-current="page"' : ''; ?>>Our Team</a></li>
@@ -133,8 +133,7 @@ $socialImage = $siteUrl . '/images/logo1.png';
                 </ul>
             </nav>
 
-            <a href="<?php echo BASE_URL; ?>contact.php" class="hidden lg:inline-flex items-center px-5 py-2.5 rounded-full bg-[#0f4c81] text-white font-semibold shadow-sm hover:bg-[#f57a3d] transition-all duration-300">Get a Quote</a>
-
+           
             <!-- Mobile menu button -->
             <div class="lg:hidden flex items-center">
                 <button @click="mobileMenuOpen = true" class="text-gray-700 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-label="Open main menu">
@@ -145,7 +144,7 @@ $socialImage = $siteUrl . '/images/logo1.png';
             </div>
         </div>
 
-        <!-- Mobile Menu -->
+        <!-- Mobile Menu Drawer -->
         <div x-show="mobileMenuOpen" x-cloak class="lg:hidden">
             <div x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
                  x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
@@ -154,7 +153,7 @@ $socialImage = $siteUrl . '/images/logo1.png';
             <div x-show="mobileMenuOpen" 
                  x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" 
                  x-transition:leave="transition ease-in duration-300 transform" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full"
-                 class="fixed inset-y-0 left-0 bg-white z-50 w-full max-w-sm p-6 flex flex-col shadow-xl">
+                 class="fixed inset-y-0 left-0 bg-white z-50 w-full max-w-sm p-6 flex flex-col shadow-xl overflow-y-auto">
                 
                 <div class="flex items-center justify-between mb-8">
                     <a href="<?php echo BASE_URL; ?>index.php" class="text-gray-900 font-bold text-xl">JobFlow</a>
@@ -165,7 +164,6 @@ $socialImage = $siteUrl . '/images/logo1.png';
                     </button>
                 </div>
 
-                <!-- UPDATED: Mobile Navigation Links with Services Dropdown -->
                 <nav x-data="{ servicesOpen: false }">
                     <ul class="space-y-4 text-xl">
                         <li><a href="<?php echo BASE_URL; ?>index.php" class="block font-semibold text-gray-700 hover:text-blue-600">Home</a></li>
@@ -176,13 +174,13 @@ $socialImage = $siteUrl . '/images/logo1.png';
                                 <svg class="h-5 w-5 transform transition-transform" :class="{'rotate-180': servicesOpen}" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </button>
                             <ul x-show="servicesOpen" x-transition class="pl-4 mt-2 space-y-3 text-lg border-l-2 border-gray-200">
-                                <li><a href="dental_services.php" class="block text-gray-600 hover:text-blue-600">Dental Services</a></li>
-                                <li><a href="talent_acquisition.php" class="block text-gray-600 hover:text-blue-600">Talent Acquisition</a></li>
-                                <li><a href="it_services.php" class="block text-gray-600 hover:text-blue-600">IT Services</a></li>
-                                <li><a href="finance_accounting.php" class="block text-gray-600 hover:text-blue-600">Finance & Accounting</a></li>
-                                <li><a href="bpo.php" class="block text-gray-600 hover:text-blue-600">BPO Services</a></li>
-                                <li><a href="customer_support.php" class="block text-gray-600 hover:text-blue-600">Customer Support</a></li>
-                                <li><a href="other_services.php" class="block text-gray-600 hover:text-blue-600">Other Services</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>dental_services.php" class="block text-gray-600 hover:text-blue-600">Dental Services</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>talent_acquisition.php" class="block text-gray-600 hover:text-blue-600">Talent Acquisition</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>it_services.php" class="block text-gray-600 hover:text-blue-600">IT Services</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>finance_accounting.php" class="block text-gray-600 hover:text-blue-600">Finance & Accounting</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>bpo.php" class="block text-gray-600 hover:text-blue-600">BPO Services</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>customer_support.php" class="block text-gray-600 hover:text-blue-600">Customer Support</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>other_services.php" class="block text-gray-600 hover:text-blue-600">Other Services</a></li>
                             </ul>
                         </li>
                         <li><a href="<?php echo BASE_URL; ?>team.php" class="block font-semibold text-gray-700 hover:text-blue-600">Our Team</a></li>
