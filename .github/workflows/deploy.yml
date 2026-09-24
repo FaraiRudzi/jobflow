@@ -1,0 +1,30 @@
+name: Deploy Web System to cPanel
+
+on:
+  push:
+    branches: [ main ] # Triggers the deployment instantly when pushing code to your main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # Uses a standard clean Linux environment provided by GitHub
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Securely pushes your PHP, CSS, and JS files directly to your cPanel hosting space
+      - name: Sync Code Files to cPanel
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.CPANEL_HOST }}
+          username: ${{ secrets.CPANEL_USERNAME }}
+          password: ${{ secrets.CPANEL_PASSWORD }}
+          protocol: ftp # Uses standard cPanel FTP. If your host forces secure FTP, change this to: sftp
+          port: 21      # Standard FTP port. (If using SFTP, change this to 22)
+          local-dir: ./ # Syncs everything from your GitHub workspace folder
+          server-dir: /public_html/ # Targets your main web directory (Change this folder name if deploying to a subfolder)
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            README.md
