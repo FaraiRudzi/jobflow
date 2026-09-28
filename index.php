@@ -10,7 +10,20 @@ $faqs = [
  ['Can Job Flow support dental practices?','Yes. Our dental practice support teams handle front-office administration and operational tasks so your clinicians can focus on patients and practice growth.'],
  ['How do I get started with outsourcing?','Contact us to book a consultation. We assess your goals and workflows, build the right team, launch with onboarding and SOPs, and keep improving performance. We respond within 24 hours.'],
 ];
-$extraSchema = ['@context'=>'https://schema.org','@type'=>'FAQPage','mainEntity'=>array_map(fn($q)=>['@type'=>'Question','name'=>$q[0],'acceptedAnswer'=>['@type'=>'Answer','text'=>$q[1]]], $faqs)];
+$extraSchema = [
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => array_map(function ($q) {
+        return [
+            '@type' => 'Question',
+            'name' => $q[0],
+            'acceptedAnswer' => [
+                '@type' => 'Answer',
+                'text' => $q[1]
+            ]
+        ];
+    }, $faqs)
+];
 require_once 'includes/header.php';
 ?>
 
