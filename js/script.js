@@ -1,198 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Safe Swiper init: skips missing elements and never double-initialises
+    const initSwiper = (sel, opts) => {
+        const el = document.querySelector(sel);
+        return el && !el.swiper ? new Swiper(el, opts) : null;
+    };
+    const nav = (s) => ({ nextEl: `${s} .swiper-button-next`, prevEl: `${s} .swiper-button-prev` });
+    const pag = (s) => ({ el: `${s} .swiper-pagination`, clickable: true });
 
-    // --- 1. Initialize Hero Slider (Swiper.js) ---
-    const heroSlider = new Swiper('.hero-slider', {
-        loop: true,
-        speed: 800,
-        effect: 'fade', // Smooth fade transition
-        fadeEffect: {
-            crossFade: true
-        },
-        autoplay: {
-            delay: 7000,
-            disableOnInteraction: false,
-        },
-        navigation: {
-            nextEl: '.hero-slider .swiper-button-next',
-            prevEl: '.hero-slider .swiper-button-prev',
-        },
-        pagination: {
-            el: '.hero-slider .swiper-pagination',
-            clickable: true,
-        },
-    });
+    initSwiper('.hero-slider', { loop: true, speed: 800, effect: 'fade', fadeEffect: { crossFade: true },
+        autoplay: { delay: 7000, disableOnInteraction: false }, navigation: nav('.hero-slider'), pagination: pag('.hero-slider') });
 
-    // --- 2. Initialize Testimonials Carousel (Swiper.js) ---
-    const testimonialsSlider = new Swiper('.testimonials-slider', {
-        loop: true,
-        speed: 600,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        slidesPerView: 'auto',
-        pagination: {
-            el: '.testimonials-slider .swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.testimonials-slider .swiper-button-next',
-            prevEl: '.testimonials-slider .swiper-button-prev',
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 1,
-                spaceBetween: 20
-            },
-            992: {
-                slidesPerView: 2,
-                spaceBetween: 30
-            }
-        }
-    });
+    initSwiper('.testimonials-slider', { loop: true, speed: 600, autoplay: { delay: 5000, disableOnInteraction: false },
+        pagination: pag('.testimonials-slider'), navigation: nav('.testimonials-slider'),
+        breakpoints: { 320: { slidesPerView: 1, spaceBetween: 20 }, 992: { slidesPerView: 2, spaceBetween: 30 } } });
 
-    // --- 3. Mobile Navigation & Header on Scroll ---
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const header = document.querySelector('header');
-    
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-active');
-            hamburger.classList.toggle('open'); // Hamburger animation toggle
-        });
-    }
+    initSwiper('.team-slider', { loop: true, speed: 600, autoplay: { delay: 6000, disableOnInteraction: false },
+        pagination: pag('.team-slider'), navigation: nav('.team-slider'),
+        breakpoints: { 320: { slidesPerView: 1, spaceBetween: 20 }, 768: { slidesPerView: 2, spaceBetween: 30 }, 1024: { slidesPerView: 3, spaceBetween: 30 } } });
 
-    if (header) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    }
+    // Legacy mobile nav + header shadow (safe if elements are absent)
+    const hamburger = document.querySelector('.hamburger'), navLinks = document.querySelector('.nav-links'), header = document.querySelector('header');
+    if (hamburger && navLinks) hamburger.addEventListener('click', () => { navLinks.classList.toggle('nav-active'); hamburger.classList.toggle('open'); });
+    if (header) { const f = () => header.classList.toggle('scrolled', window.scrollY > 80); f(); window.addEventListener('scroll', f, { passive: true }); }
 
-    // --- 4. Animate Numbers & Reveal Elements on Scroll ---
-    const animatedElements = document.querySelectorAll('.reveal, .stat-number');
-
+    // Reveal + counters
+    const animateCounter = (counter) => {
+        const target = +counter.getAttribute('data-target'); let count = 0;
+        const tick = () => { count += target / 200; if (count < target) { counter.innerText = Math.ceil(count); requestAnimationFrame(tick); } else counter.innerText = target; };
+        tick();
+    };
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-
-                // Add staggered delay for reveal animations
-                const delay = el.dataset.revealDelay || 0;
-                setTimeout(() => {
-                    el.classList.add('active');
-                }, delay);
-
-                // Animate number counters
-                if (el.classList.contains('stat-number') && !el.classList.contains('counted')) {
-                    animateCounter(el);
-                    el.classList.add('counted');
-                }
-                
-                observer.unobserve(el); // Only animate once
-            }
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            setTimeout(() => el.classList.add('active'), el.dataset.revealDelay || 0);
+            if (el.classList.contains('stat-number') && !el.classList.contains('counted')) { animateCounter(el); el.classList.add('counted'); }
+            observer.unobserve(el);
         });
     }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .stat-number').forEach((el) => observer.observe(el));
 
-    animatedElements.forEach(el => observer.observe(el));
-
-    // Counter Animation Function
-    const animateCounter = (counter) => {
-        const target = +counter.getAttribute('data-target');
-        const speed = 200; // The lower, the faster
-        let count = 0;
-        
-        const updateCount = () => {
-            const increment = target / speed;
-            count += increment;
-
-            if (count < target) {
-                counter.innerText = Math.ceil(count);
-                requestAnimationFrame(updateCount);
-            } else {
-                counter.innerText = target;
-            }
-        };
-        updateCount();
-    };
-
-    // --- Initialize Team Slider (Swiper.js) ---
-const teamSlider = new Swiper('.team-slider', {
-    loop: true,
-    speed: 600,
-    autoplay: {
-        delay: 6000,
-        disableOnInteraction: false,
-    },
-    slidesPerView: 3,
-    spaceBetween: 30,
-    pagination: {
-        el: '.team-slider .swiper-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.team-slider .swiper-button-next',
-        prevEl: '.team-slider .swiper-button-prev',
-    },
-    breakpoints: {
-        320: {
-            slidesPerView: 1,
-            spaceBetween: 20
-        },
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 30
-        },
-        1024: {
-            slidesPerView: 3,
-            spaceBetween: 30
-        }
-    }
-});
-
-});
-document.addEventListener('DOMContentLoaded', function() {
+    // Legacy dropdown (previously crashed when .dropdown-item was missing)
     const dropdownItem = document.querySelector('.dropdown-item');
-    const dropdownToggle = dropdownItem.querySelector('.dropdown-toggle');
-    const dropdownMenu = dropdownItem.querySelector('.dropdown-menu');
-
-    if (dropdownToggle && dropdownMenu) {
-        // Function to hide the dropdown
-        const hideDropdown = function() {
-            dropdownMenu.classList.remove('show');
-            dropdownToggle.setAttribute('aria-expanded', 'false');
-        };
-
-        // Function to show the dropdown
-        const showDropdown = function() {
-            dropdownMenu.classList.add('show');
-            dropdownToggle.setAttribute('aria-expanded', 'true');
-        };
-
-        // Click/tap event for mobile
-        dropdownToggle.addEventListener('click', function(event) {
-            event.preventDefault(); // Stop the link from navigating
-            if (dropdownMenu.classList.contains('show')) {
-                hideDropdown();
-            } else {
-                // Hide all other dropdowns before showing this one
-                document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
-                    menu.classList.remove('show');
-                    menu.previousElementSibling.setAttribute('aria-expanded', 'false');
-                });
-                showDropdown();
-            }
-        });
-
-        // Hover events for desktop
-        dropdownItem.addEventListener('mouseenter', showDropdown);
-        dropdownItem.addEventListener('mouseleave', hideDropdown);
-        
-        // This is a more reliable way to handle mouse leaving the parent element.
-        // It prevents the menu from disappearing if the mouse briefly moves off the menu items.
+    const toggle = dropdownItem && dropdownItem.querySelector('.dropdown-toggle');
+    const menu = dropdownItem && dropdownItem.querySelector('.dropdown-menu');
+    if (toggle && menu) {
+        const set = (open) => { menu.classList.toggle('show', open); toggle.setAttribute('aria-expanded', String(open)); };
+        toggle.addEventListener('click', (e) => { e.preventDefault(); set(!menu.classList.contains('show')); });
+        dropdownItem.addEventListener('mouseenter', () => set(true));
+        dropdownItem.addEventListener('mouseleave', () => set(false));
     }
 });

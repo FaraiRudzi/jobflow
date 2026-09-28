@@ -1,93 +1,86 @@
 <?php
 require_once 'config.php';
-$pageTitle = 'JobFlow - Transforming Businesses, Empowering Talent';
+$pageTitle = 'Outsourcing Company in Zimbabwe | African Talent | Job Flow';
 $currentPage = 'home';
-$pageDescription = 'Job Flow Digital Solutions offers comprehensive digital services for businesses and job seekers, specializing in talent acquisition, web development, and digital marketing.';
+$pageDescription = 'Job Flow Digital Solutions is a Harare outsourcing company providing skilled African talent for customer support, IT, finance, dental and BPO. Save up to 70%.';
+$faqs = [
+ ['What is Job Flow Digital Solutions?','Job Flow Digital Solutions is an outsourcing company. We connect businesses worldwide with skilled African professionals for customer support, IT, finance and accounting, dental practice support, talent acquisition and business process outsourcing (BPO).'],
+ ['How much can I save by outsourcing to Africa?','Clients can save up to 70% compared with traditional in-house hiring, depending on the role, experience level and scope of work. Book a consultation and we will scope the exact cost for your team.'],
+ ['Which outsourcing services does Job Flow offer?','We offer talent acquisition, IT support, finance and accounting outsourcing, dental practice support, customer support outsourcing, virtual assistants and end-to-end BPO solutions.'],
+ ['Can Job Flow support dental practices?','Yes. Our dental practice support teams handle front-office administration and operational tasks so your clinicians can focus on patients and practice growth.'],
+ ['How do I get started with outsourcing?','Contact us to book a consultation. We assess your goals and workflows, build the right team, launch with onboarding and SOPs, and keep improving performance. We respond within 24 hours.'],
+];
+$extraSchema = ['@context'=>'https://schema.org','@type'=>'FAQPage','mainEntity'=>array_map(fn($q)=>['@type'=>'Question','name'=>$q[0],'acceptedAnswer'=>['@type'=>'Answer','text'=>$q[1]]], $faqs)];
 require_once 'includes/header.php';
 ?>
 
-<section class="hero-modern">
-    <div class="hero-backdrop"></div>
-    <div class="container hero-inner">
-        <div class="hero-copy" data-aos="fade-up">
-            <span class="hero-badge">Global talent. Local impact.</span>
-            <h1>Smarter outsourcing for businesses that want to scale with confidence.</h1>
-            <p>Job Flow Digital Solutions helps companies access high-performing African professionals for customer support, IT operations, finance, dental administration, and executive support—without the overhead of traditional hiring.</p>
-            <div class="hero-actions">
-                <a href="<?= BASE_URL ?>services.php" class="primary-btn">Explore services</a>
-                <a href="<?= BASE_URL ?>contact.php" class="secondary-btn">Book a consultation</a>
-            </div>
-            <ul class="mini-list">
-                <li><i class="fa-solid fa-check"></i> 70% cost-efficient staffing</li>
-                <li><i class="fa-solid fa-check"></i> Dedicated, skilled specialists</li>
-                <li><i class="fa-solid fa-check"></i> Trusted by growing businesses</li>
-            </ul>
-        </div>
-
-        <div class="hero-panel" data-aos="fade-left" data-aos-delay="150">
-            <div class="hero-card stat-card featured">
-                <span class="label">Client growth</span>
-                <strong>+240%</strong>
-                <small>Operational efficiency improvements</small>
-            </div>
-            <div class="hero-card info-card">
-                <div class="card-topline">
-                    <span class="dot"></span>
-                    <span>Performance snapshot</span>
-                </div>
-                <div class="mini-metrics">
-                    <div>
-                        <strong>500+</strong>
-                        <span>Professionals placed</span>
-                    </div>
-                    <div>
-                        <strong>98%</strong>
-                        <span>Client satisfaction</span>
+<section class="jf-carousel" aria-label="Featured outsourcing services">
+    <div class="swiper hero-swiper">
+        <div class="swiper-wrapper">
+            <?php
+            $slides = [
+              ['h1','images/professionals.png','Team of African professionals providing remote outsourcing services for global businesses','Outsourcing to skilled African talent, built for growing businesses','Job Flow Digital Solutions is an outsourcing company in Harare, Zimbabwe. We place dedicated remote professionals in customer support, IT, finance, dental administration and executive support, at up to 70% lower cost than traditional hiring.','contact.php','Book a consultation','services.php','Explore outsourcing services'],
+              ['h2','images/customer.png','Customer support agent wearing a headset assisting international clients','Customer support and virtual assistants who work like your own team','Friendly, well-trained agents handle your calls, chats and inbox, so customers get fast answers and your staff can focus on growth.','customer_support.php','See customer support outsourcing','contact.php','Talk to our team'],
+              ['h2','images/it.png','Finance and IT specialists collaborating at laptops in a modern office','Finance, IT and dental practice support at a fraction of the cost','Bookkeeping, technical support and front-office administration from trained specialists who plug straight into your workflow.','finance_accounting.php','Explore finance outsourcing','dental_services.php','Dental practice support'],
+            ];
+            foreach ($slides as $i => [$tag,$img,$alt,$title,$lead,$l1,$t1,$l2,$t2]): ?>
+            <div class="swiper-slide jf-slide">
+                <img src="<?= BASE_URL.$img ?>" alt="<?= htmlspecialchars($alt) ?>" width="1920" height="1080" <?= $i===0 ? 'fetchpriority="high"' : 'loading="lazy"' ?> onerror="this.style.display='none'">
+                <div class="jf-slide-inner container">
+                    <<?= $tag ?> class="jf-title"><?= htmlspecialchars($title) ?></<?= $tag ?>>
+                    <p class="lead"><?= htmlspecialchars($lead) ?></p>
+                    <div class="hero-actions">
+                        <a href="<?= BASE_URL.$l1 ?>" class="primary-btn"><?= $t1 ?></a>
+                        <a href="<?= BASE_URL.$l2 ?>" class="secondary-btn"><?= $t2 ?></a>
                     </div>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div>
+        <div class="swiper-button-prev" aria-label="Previous slide"></div>
+        <div class="swiper-button-next" aria-label="Next slide"></div>
+        <div class="swiper-pagination"></div>
     </div>
 </section>
 
-<div class="trust-strip">
-    <div class="container trust-inner">
-        <span>Trusted by businesses across operations, support, finance, and digital services</span>
-        <div class="trust-items">
-            <span>Outsourcing</span>
-            <span>Customer Support</span>
-            <span>IT Services</span>
-            <span>Talent Acquisition</span>
-            <span>Finance</span>
-        </div>
+<div class="jf-strip">
+    <div class="container jf-unique">
+        <h2>What makes us different</h2>
+        <ul>
+            <li><i class="fa-solid fa-check"></i>Up to 70% cost-efficient staffing</li>
+            <li><i class="fa-solid fa-check"></i>Dedicated, skilled specialists</li>
+            <li><i class="fa-solid fa-check"></i>Response within 24 hours</li>
+            <li><i class="fa-solid fa-check"></i>Trusted by growing businesses</li>
+        </ul>
     </div>
 </div>
 
+<nav class="jf-sectors" aria-label="Outsourcing services we offer">
+    <div class="container"><span>We support</span>
+        <a href="<?= BASE_URL ?>customer_support.php">Customer Support</a>
+        <a href="<?= BASE_URL ?>it_services.php">IT Services</a>
+        <a href="<?= BASE_URL ?>finance_accounting.php">Finance &amp; Accounting</a>
+        <a href="<?= BASE_URL ?>dental_services.php">Dental Practices</a>
+        <a href="<?= BASE_URL ?>talent_acquisition.php">Talent Acquisition</a>
+        <a href="<?= BASE_URL ?>bpo.php">BPO</a>
+    </div>
+</nav>
+
 <section class="section-alt">
-    <div class="container">
-        <div class="section-head" data-aos="fade-up">
+    <div class="container jf-split">
+        <div data-aos="fade-right">
             <span class="eyebrow">Why partner with us</span>
-            <h2>Built for modern businesses that need speed, quality, and trust.</h2>
+            <h2>Africa's outsourcing partner for remote teams you can trust.</h2>
+            <p>As a Harare-based <a href="<?= BASE_URL ?>bpo.php" class="jf-link">business process outsourcing company</a>, we streamline repetitive work, shorten turnaround times and free your team to focus on growth. Whether you need one virtual assistant or a full outsourcing division, we build a team that scales with you. Explore our <a href="<?= BASE_URL ?>services.php" class="jf-link">outsourcing services</a> or meet <a href="<?= BASE_URL ?>team.php" class="jf-link">the team behind Job Flow</a>.</p>
+            <a href="<?= BASE_URL ?>about_us.php" class="primary-btn">Learn about us</a>
         </div>
-
-        <div class="feature-grid">
-            <article class="feature-panel" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
-                <h3>Operational efficiency</h3>
-                <p>We help businesses streamline repetitive tasks, improve turnaround time, and free internal teams to focus on growth.</p>
-            </article>
-
-            <article class="feature-panel" data-aos="fade-up" data-aos-delay="150">
-                <div class="feature-icon"><i class="fa-solid fa-user-tie"></i></div>
-                <h3>Qualified professionals</h3>
-                <p>Our network includes trained specialists in admin support, customer service, accounting, technical operations, and more.</p>
-            </article>
-
-            <article class="feature-panel" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
-                <h3>Scalable growth</h3>
-                <p>Whether you need a small team or a large outsourcing division, we design solutions that grow with your business.</p>
-            </article>
+        <div class="jf-panel" data-aos="fade-left">
+            <strong>+240%</strong>
+            <span>Operational efficiency improvements for our clients</span>
+            <dl>
+                <div><dt>500+</dt><dd>Professionals placed</dd></div>
+                <div><dt>98%</dt><dd>Client satisfaction</dd></div>
+            </dl>
         </div>
     </div>
 </section>
@@ -95,105 +88,21 @@ require_once 'includes/header.php';
 <section class="section-solid">
     <div class="container">
         <div class="section-head narrow" data-aos="fade-up">
-            <span class="eyebrow">What we deliver</span>
-            <h2>Flexible solutions for the functions that move your business forward.</h2>
+            <span class="eyebrow">How it works</span>
+            <h2>From first call to first day, in four clear steps.</h2>
         </div>
-
-        <div class="service-grid">
-            <article class="service-card-modern" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-icon"><i class="fa-solid fa-briefcase"></i></div>
-                <h3>Talent acquisition</h3>
-                <p>Hire the right people quickly with a smarter recruitment process built around quality and speed.</p>
-                <a href="<?= BASE_URL ?>talent_acquisition.php">Learn more</a>
-            </article>
-
-            <article class="service-card-modern" data-aos="fade-up" data-aos-delay="150">
-                <div class="service-icon"><i class="fa-solid fa-computer"></i></div>
-                <h3>IT support</h3>
-                <p>Dependable technical assistance and operational support that keeps your systems and teams efficient.</p>
-                <a href="<?= BASE_URL ?>it_services.php">Learn more</a>
-            </article>
-
-            <article class="service-card-modern" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-icon"><i class="fa-solid fa-calculator"></i></div>
-                <h3>Finance & accounting</h3>
-                <p>Accurate support for bookkeeping, reconciliation, reporting, and financial process management.</p>
-                <a href="<?= BASE_URL ?>finance_accounting.php">Learn more</a>
-            </article>
-
-            <article class="service-card-modern" data-aos="fade-up" data-aos-delay="250">
-                <div class="service-icon"><i class="fa-solid fa-tooth"></i></div>
-                <h3>Dental support</h3>
-                <p>Efficient front-office and operational support designed for modern dental practice growth.</p>
-                <a href="<?= BASE_URL ?>dental_services.php">Learn more</a>
-            </article>
-
-            <article class="service-card-modern" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-icon"><i class="fa-solid fa-headset"></i></div>
-                <h3>Customer support</h3>
-                <p>Friendly, professional service teams that elevate customer satisfaction and brand perception.</p>
-                <a href="<?= BASE_URL ?>customer_support.php">Learn more</a>
-            </article>
-
-            <article class="service-card-modern" data-aos="fade-up" data-aos-delay="350">
-                <div class="service-icon"><i class="fa-solid fa-people-group"></i></div>
-                <h3>BPO solutions</h3>
-                <p>End-to-end support for operations that need reliability, consistency, and measurable processes.</p>
-                <a href="<?= BASE_URL ?>bpo.php">Learn more</a>
-            </article>
-        </div>
-    </div>
-</section>
-
-<section class="section-alt">
-    <div class="container process-wrap">
-        <div class="section-head" data-aos="fade-up">
-            <span class="eyebrow">How we work</span>
-            <h2>A clear, consultative process designed around results.</h2>
-        </div>
-
-        <div class="process-grid">
-            <article class="process-step" data-aos="fade-up" data-aos-delay="100">
-                <span>01</span>
-                <h3>Understand your needs</h3>
-                <p>We assess your goals, workflows, and bottlenecks to design the right outsourcing model.</p>
-            </article>
-            <article class="process-step" data-aos="fade-up" data-aos-delay="150">
-                <span>02</span>
-                <h3>Build the right team</h3>
-                <p>We identify the skills, experience, and roles needed to fit your business and budget.</p>
-            </article>
-            <article class="process-step" data-aos="fade-up" data-aos-delay="200">
-                <span>03</span>
-                <h3>Launch with structure</h3>
-                <p>We implement onboarding, SOPs, and communication systems to keep execution smooth from day one.</p>
-            </article>
-            <article class="process-step" data-aos="fade-up" data-aos-delay="250">
-                <span>04</span>
-                <h3>Optimize continuously</h3>
-                <p>We review performance, improve operations, and refine support as your business evolves.</p>
-            </article>
-        </div>
-    </div>
-</section>
-
-<section class="stats-band">
-    <div class="container stats-grid">
-        <div class="stat-card" data-aos="zoom-in">
-            <strong class="counter" data-target="70">0</strong>
-            <span>Cost savings</span>
-        </div>
-        <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
-            <strong class="counter" data-target="500">0</strong>
-            <span>Professionals placed</span>
-        </div>
-        <div class="stat-card" data-aos="zoom-in" data-aos-delay="150">
-            <strong class="counter" data-target="98">0</strong>
-            <span>Client satisfaction</span>
-        </div>
-        <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
-            <strong class="counter" data-target="24">0</strong>
-            <span>Hours response</span>
+        <div class="jf-steps">
+            <?php foreach ([
+                ['Understand your needs','We assess your goals, workflows, and bottlenecks to design the right outsourcing model.'],
+                ['Build the right team','We identify the skills, experience, and roles that fit your business and budget.'],
+                ['Launch with structure','Onboarding, SOPs, and communication systems keep execution smooth from day one.'],
+                ['Optimize continuously','We review performance and refine support as your business evolves.'],
+            ] as $i => [$t,$d]): ?>
+            <div class="jf-step" data-aos="fade-up">
+                <b><?= $i+1 ?></b>
+                <div><h3><?= $t ?></h3><p><?= $d ?></p></div>
+            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
@@ -201,23 +110,45 @@ require_once 'includes/header.php';
 <section class="section-alt">
     <div class="container">
         <div class="section-head narrow" data-aos="fade-up">
-            <span class="eyebrow">Why clients choose us</span>
-            <h2>Professional support that feels like an extension of your team.</h2>
+            <span class="eyebrow">What we do</span>
+            <h2>Flexible support for the functions that move your business forward.</h2>
         </div>
+        <div class="jf-services" data-aos="fade-up">
+            <?php foreach ([
+                ['briefcase','Talent acquisition','Hire the right people quickly with a recruitment process built around quality and speed.','talent_acquisition'],
+                ['computer','IT support','Dependable technical assistance that keeps your systems and teams efficient.','it_services'],
+                ['calculator','Finance & accounting','Accurate bookkeeping, reconciliation, reporting, and process management.','finance_accounting'],
+                ['tooth','Dental support','Front-office and operational support designed for growing dental practices.','dental_services'],
+                ['headset','Customer support','Friendly, professional teams that lift customer satisfaction and brand perception.','customer_support'],
+                ['people-group','BPO solutions','End-to-end support for operations that need consistency and measurable processes.','bpo'],
+            ] as [$ic,$t,$d,$f]): ?>
+            <a class="jf-service" href="<?= BASE_URL.$f ?>.php" title="<?= $t ?> outsourcing services">
+                <i class="fa-solid fa-<?= $ic ?>"></i><h3><?= $t ?></h3><p><?= $d ?></p><span>Learn more</span>
+            </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
 
+<section class="stats-band">
+    <div class="container stats-grid">
+        <div class="stat-card" data-aos="fade-up"><strong class="counter" data-target="70">0</strong><span>Cost savings</span></div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="100"><strong class="counter" data-target="500">0</strong><span>Professionals placed</span></div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="150"><strong class="counter" data-target="98">0</strong><span>Client satisfaction</span></div>
+        <div class="stat-card" data-aos="fade-up" data-aos-delay="200"><strong class="counter" data-target="24">0</strong><span>Hours response</span></div>
+    </div>
+</section>
+
+<section class="section-solid">
+    <div class="container">
+        <div class="section-head narrow" data-aos="fade-up">
+            <span class="eyebrow">Why clients choose us</span>
+            <h2>Support that feels like an extension of your team.</h2>
+        </div>
         <div class="promise-grid">
-            <div class="promise-box" data-aos="fade-right">
-                <h3>Reliable expertise</h3>
-                <p>Our specialists are selected for skill, professionalism, and a strong work ethic so your operations stay consistent and accountable.</p>
-            </div>
-            <div class="promise-box" data-aos="fade-up">
-                <h3>Transparent communication</h3>
-                <p>We maintain clear reporting, dependable communication, and strong collaboration so you’re always informed.</p>
-            </div>
-            <div class="promise-box" data-aos="fade-left">
-                <h3>Tailor-made strategy</h3>
-                <p>We do not force a one-size-fits-all arrangement. Each solution is built around your real needs and growth goals.</p>
-            </div>
+            <div class="promise-box" data-aos="fade-up"><h3>Reliable expertise</h3><p>Specialists selected for skill, professionalism, and work ethic, so your operations stay consistent and accountable.</p></div>
+            <div class="promise-box" data-aos="fade-up" data-aos-delay="100"><h3>Transparent communication</h3><p>Clear reporting and dependable collaboration keep you informed at every stage.</p></div>
+            <div class="promise-box" data-aos="fade-up" data-aos-delay="200"><h3>Tailor-made strategy</h3><p>No one-size-fits-all arrangements. Each solution is built around your real needs and growth goals.</p></div>
         </div>
     </div>
 </section>
@@ -226,29 +157,25 @@ require_once 'includes/header.php';
 $testimonials = json_decode(file_get_contents('testimonials.json'), true) ?: [];
 if (!empty($testimonials)):
 ?>
-<section class="section-solid testimonial-section">
+<section class="section-alt testimonial-section">
     <div class="container">
         <div class="section-head" data-aos="fade-up">
             <span class="eyebrow">Client feedback</span>
             <h2>What businesses say after partnering with Job Flow.</h2>
         </div>
-
         <div class="swiper testimonials-slider">
             <div class="swiper-wrapper">
                 <?php foreach ($testimonials as $t): ?>
-                    <div class="swiper-slide testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="stars">★★★★★</div>
-                            <p>“<?= htmlspecialchars($t['quote']); ?>”</p>
-                            <div class="person">
-                                <img src="<?= htmlspecialchars($t['image'] ?? BASE_URL . 'images/default-avatar.jpg'); ?>" alt="<?= htmlspecialchars($t['name'] ?? 'Anonymous'); ?>">
-                                <div>
-                                    <strong><?= htmlspecialchars($t['name'] ?? 'Anonymous'); ?></strong>
-                                    <span><?= htmlspecialchars($t['position'] ?? 'Client'); ?></span>
-                                </div>
-                            </div>
+                <div class="swiper-slide testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>“<?= htmlspecialchars($t['quote']); ?>”</p>
+                        <div class="person">
+                            <img src="<?= htmlspecialchars($t['image'] ?? BASE_URL . 'images/default-avatar.jpg'); ?>" alt="<?= htmlspecialchars($t['name'] ?? 'Anonymous'); ?>">
+                            <div><strong><?= htmlspecialchars($t['name'] ?? 'Anonymous'); ?></strong><span><?= htmlspecialchars($t['position'] ?? 'Client'); ?></span></div>
                         </div>
                     </div>
+                </div>
                 <?php endforeach; ?>
             </div>
             <div class="swiper-pagination"></div>
@@ -257,7 +184,21 @@ if (!empty($testimonials)):
 </section>
 <?php endif; ?>
 
-<section class="cta-section">
+<section class="section-solid jf-faq">
+    <div class="container">
+        <div class="section-head narrow" data-aos="fade-up">
+            <span class="eyebrow">Frequently asked questions</span>
+            <h2>Outsourcing to Africa: your questions answered.</h2>
+        </div>
+        <div class="jf-faq-list">
+            <?php foreach ($faqs as $q): ?>
+            <details><summary><?= htmlspecialchars($q[0]) ?></summary><p><?= htmlspecialchars($q[1]) ?></p></details>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section" style="padding:4rem 0 6rem">
     <div class="container cta-panel" data-aos="fade-up">
         <div>
             <span class="eyebrow light">Let’s build your next advantage</span>
@@ -271,53 +212,36 @@ if (!empty($testimonials)):
 </section>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        AOS.init({ duration: 1000, once: true, easing: 'ease-out-cubic' });
-
-        new Swiper('.testimonials-slider', {
-            loop: true,
-            speed: 800,
-            autoplay: { delay: 5000, disableOnInteraction: false },
-            slidesPerView: 1,
-            spaceBetween: 24,
-            pagination: { el: '.swiper-pagination', clickable: true },
-            breakpoints: {
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
-            }
-        });
-
-        const counters = document.querySelectorAll('.counter');
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-
-                const counter = entry.target;
-                const target = Number(counter.getAttribute('data-target'));
-                let value = 0;
-                const duration = 1400;
-                const start = performance.now();
-
-                function update(now) {
-                    const progress = Math.min((now - start) / duration, 1);
-                    value = Math.floor(progress * target);
-                    counter.textContent = value;
-                    if (progress < 1) {
-                        requestAnimationFrame(update);
-                    } else {
-                        counter.textContent = target;
-                    }
-                }
-
-                requestAnimationFrame(update);
-                counterObserver.unobserve(counter);
-            });
-        }, { threshold: 0.5 });
-
-        counters.forEach((counter) => counterObserver.observe(counter));
+document.addEventListener('DOMContentLoaded', function () {
+    AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic' });
+    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    new Swiper('.hero-swiper', {
+        loop: true, effect: 'fade', fadeEffect: { crossFade: true }, speed: 1200,
+        autoplay: calm ? false : { delay: 6000, disableOnInteraction: false },
+        pagination: { el: '.hero-swiper .swiper-pagination', clickable: true },
+        navigation: { nextEl: '.hero-swiper .swiper-button-next', prevEl: '.hero-swiper .swiper-button-prev' }
     });
+    new Swiper('.testimonials-slider', {
+        loop: true, speed: 800, autoplay: { delay: 5000, disableOnInteraction: false },
+        slidesPerView: 1, spaceBetween: 24,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+    });
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target, target = Number(el.dataset.target), start = performance.now();
+            (function tick(now) {
+                const p = Math.min((now - start) / 1400, 1);
+                el.textContent = p < 1 ? Math.floor(p * target) : target;
+                if (p < 1) requestAnimationFrame(tick);
+            })(start);
+            io.unobserve(el);
+        });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.counter').forEach((c) => io.observe(c));
+});
 </script>
 
 <?php require_once 'includes/footer.php'; ?>

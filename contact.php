@@ -1,146 +1,105 @@
 <?php
-$page_title = 'Contact Us - Job Flow';
-$currentPage = 'contact';
 require_once 'config.php';
+
+$pageTitle = 'Contact Job Flow | Outsourcing in Harare, Zimbabwe';
+$currentPage = 'contact';
+$pageDescription = 'Contact Job Flow Digital Solutions in Harare for a free consultation on outsourcing, skilled African talent and tailored business support. We reply within 24 hours.';
+$site = defined('SITE_URL') ? SITE_URL : rtrim(BASE_URL, '/');
+$faqs = [
+  ['How quickly will Job Flow respond to my message?','We aim to respond to every enquiry within 24 hours.'],
+  ['Is the consultation really free?','Yes. Your first consultation is free and comes with no obligation. We listen to your goals and recommend the right outsourcing model.'],
+  ['Where is Job Flow based?','Job Flow Digital Solutions is based in Harare, Zimbabwe, and serves businesses worldwide. You can reach us by form, email, phone or WhatsApp.'],
+];
+$extraSchema = ['@context'=>'https://schema.org','@graph'=>[
+  ['@type'=>'ContactPage','name'=>'Contact Job Flow Digital Solutions','url'=>$site.'/contact.php','description'=>$pageDescription,
+   'about'=>['@type'=>'ProfessionalService','name'=>'Job Flow Digital Solutions','email'=>'info@jobflow.com','telephone'=>'+263714384422','address'=>['@type'=>'PostalAddress','addressLocality'=>'Harare','addressCountry'=>'ZW'],
+     'contactPoint'=>[['@type'=>'ContactPoint','telephone'=>'+263714384422','contactType'=>'customer service'],['@type'=>'ContactPoint','telephone'=>'+13219782455','contactType'=>'sales']]]],
+  ['@type'=>'BreadcrumbList','itemListElement'=>[['@type'=>'ListItem','position'=>1,'name'=>'Home','item'=>$site.'/index.php'],['@type'=>'ListItem','position'=>2,'name'=>'Contact','item'=>$site.'/contact.php']]],
+  ['@type'=>'FAQPage','mainEntity'=>array_map(fn($q)=>['@type'=>'Question','name'=>$q[0],'acceptedAnswer'=>['@type'=>'Answer','text'=>$q[1]]], $faqs)],
+]];
 require_once 'includes/header.php';
 ?>
 
-<!-- Banner Section -->
-<section class="bg-[#5a8bd5] py-16 text-center">
-    <div class="container mx-auto px-6 max-w-7xl">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">Get in Touch</h1>
-        <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">We'd love to hear from you. Send us a message and our team will get back to you promptly.</p>
-    </div>
+<section class="jf-pagehero">
+  <div class="container">
+    <nav class="jf-crumbs" aria-label="Breadcrumb"><a href="<?= BASE_URL ?>index.php">Home</a><span aria-hidden="true">/</span><span aria-current="page">Contact</span></nav>
+    <h1 class="jf-title">Get in touch with Job Flow</h1>
+    <p class="lead">We'd love to hear from you. Send us a message and our team will get back to you promptly, usually within 24 hours.</p>
+  </div>
 </section>
 
-<!-- Main Content Section -->
-<section class="py-16" id="contact">
-    <div class="container mx-auto px-6 max-w-6xl">
-        <div class="bg-[#a2bfde] shadow-xl rounded-2xl grid grid-cols-1 md:grid-cols-2 overflow-hidden">
-            
-            <!-- Form Column -->
-            <div class="p-8 md:p-12">
-                <h3 class="text-3xl font-bold text-[#072a50] mb-6">Send Us a Message</h3>
-                <form action="send_mail.php" method="POST" class="space-y-5">
-                    <!-- Name Input -->
-                    <div>
-                        <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
-                        <input type="text" name="name" id="name" placeholder="John Doe" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#077cf8]">
-                    </div>
-                    <!-- Email Input -->
-                    <div>
-                        <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address</label>
-                        <input type="email" name="email" id="email" placeholder="you@example.com" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#077cf8]">
-                    </div>
-                    <!-- Subject Input -->
-                    <div>
-                        <label for="subject" class="block text-gray-700 font-semibold mb-2">Subject</label>
-                        <input type="text" name="subject" id="subject" placeholder="e.g., Service Inquiry" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#077cf8]">
-                    </div>
-                    <!-- Message Textarea -->
-                    <div>
-                        <label for="message" class="block text-gray-700 font-semibold mb-2">Your Message</label>
-                        <textarea name="message" id="message" rows="5" placeholder="Please describe your needs..." required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#077cf8]"></textarea>
-                    </div>
+<section class="section-solid" id="contact">
+  <div class="container">
+    <div class="jf-contact">
+      <div class="jf-formpanel">
+        <h2>Send us a message</h2>
+        <p>Tell us about your business and the <a href="<?= BASE_URL ?>services.php" class="jf-link">outsourcing services</a> you need.</p>
+        <form action="send_mail.php" method="POST" class="jf-form">
+          <div class="jf-row">
+            <div class="jf-field"><label for="name">Full name</label><input type="text" name="name" id="name" placeholder="John Doe" autocomplete="name" required></div>
+            <div class="jf-field"><label for="email">Email address</label><input type="email" name="email" id="email" placeholder="you@example.com" autocomplete="email" required></div>
+          </div>
+          <div class="jf-field"><label for="subject">Subject</label><input type="text" name="subject" id="subject" placeholder="e.g., Service inquiry" required></div>
+          <div class="jf-field"><label for="message">Your message</label><textarea name="message" id="message" rows="5" placeholder="Please describe your needs..." required></textarea></div>
+          <label class="jf-check" for="privacy_agree"><input type="checkbox" name="privacy_agree" id="privacy_agree" required><span>By submitting this form, I acknowledge and agree to the terms outlined in the <a href="<?= BASE_URL ?>privacy_policy.php" class="jf-link">Privacy Policy</a>.</span></label>
+          <button type="submit" class="primary-btn jf-submit">Send message</button>
+        </form>
+      </div>
 
-                    <!-- REFACTORED: Privacy Policy Checkbox -->
-                    <div class="pt-2">
-                        <div class="flex items-start space-x-3">
-                            <input type="checkbox" name="privacy_agree" id="privacy_agree" required class="h-5 w-5 mt-1 text-[#077cf8] border-gray-300 rounded focus:ring-[#077cf8]">
-                            <label for="privacy_agree" class="text-gray-600 text-sm">
-                                By submitting this form, I acknowledge and agree to the terms outlined in the <a href="privacy_policy.php" class="text-blue-600 hover:underline">Privacy Policy</a>.
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="pt-4">
-                        <button type="submit" class="w-full py-3 bg-[#077cf8] text-white font-bold rounded-full shadow-lg hover:bg-[#072a50] transition-all duration-300 transform hover:-translate-y-1">Send Message</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Contact Info Column -->
-            <div class="bg-[#e2b9a7] p-8 md:p-12 text-white flex flex-col">
-                <h3 class="text-3xl font-bold mb-6">Contact Information</h3>
-                <p class="opacity-90 mb-8">You can also reach us through the following channels:</p>
-                <div class="space-y-6 mt-auto">
-                    <div class="flex items-center space-x-4">
-                        <i class="fas fa-map-marker-alt text-2xl w-6 text-center"></i>
-                        <span>Harare, Zimbabwe</span>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <i class="fas fa-envelope text-2xl w-6 text-center"></i>
-                        <a href="mailto:info@jobflow.com" class="hover:underline">info@jobflow.com</a>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <i class="fas fa-phone text-2xl w-6 text-center"></i>
-                        <a href="tel:+263714384422" class="hover:underline">+263 71 438 4422</a>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <i class="fas fa-phone text-2xl w-6 text-center"></i>
-                        <a href="tel:+13219782455" class="hover:underline">+1 (321) 978-2455</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Disclaimer -->
-        <div class="text-center text-sm text-gray-500 mt-8 pt-4 border-t">
-            <p><strong>Disclaimer:</strong> The information you provide will only be used to respond to your inquiry. JobFlow will never share your details with third parties without your explicit consent.</p>
-        </div>
+      <aside class="jf-infopanel">
+        <h2>Contact information</h2>
+        <p>You can also reach us through the following channels.</p>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i><span>Harare, Zimbabwe</span></li>
+          <li><i class="fa-solid fa-envelope"></i><a href="mailto:info@jobflow.com">info@jobflow.com</a></li>
+          <li><i class="fa-solid fa-phone"></i><a href="tel:+263714384422">+263 71 438 4422</a></li>
+          <li><i class="fa-solid fa-phone"></i><a href="tel:+13219782455">+1 (321) 978-2455</a></li>
+        </ul>
+        <a href="https://wa.me/13219782455" target="_blank" rel="noopener" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+      </aside>
     </div>
+    <p class="jf-disclaimer"><strong>Disclaimer:</strong> The information you provide will only be used to respond to your inquiry. Job Flow will never share your details with third parties without your explicit consent.</p>
+  </div>
 </section>
 
-<!-- Call to Action Section -->
-<section class="bg-[#077cf8] text-white py-16 text-center">
-    <div class="container mx-auto px-6 max-w-7xl">
-        <h2 class="text-4xl font-bold mb-4">Ready to Partner With Us?</h2>
-        <p class="text-lg mx-auto max-w-2xl my-4 text-white opacity-100">Discover how our team can help your business thrive. Get a free, no-obligation consultation to learn more about our tailored solutions.</p>
-        <a href="contact.php#contact" class="inline-block px-8 py-3 bg-white text-[#077cf8] font-bold rounded-full shadow-lg hover:bg-[#e66a33] transition-all duration-300 transform hover:-translate-y-1">Get Started Today</a>
-    </div>
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head narrow"><span class="eyebrow">Find us</span><h2>Our office in Harare, Zimbabwe.</h2></div>
+    <div class="jf-map"><iframe title="Job Flow Digital Solutions location in Harare, Zimbabwe" src="https://www.google.com/maps?q=Harare,+Zimbabwe&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+  </div>
 </section>
 
+<section class="section-solid jf-faq">
+  <div class="container">
+    <div class="section-head narrow"><span class="eyebrow">Frequently asked questions</span><h2>Before you get in touch.</h2></div>
+    <div class="jf-faq-list"><?php foreach ($faqs as $q): ?><details><summary><?= htmlspecialchars($q[0]) ?></summary><p><?= htmlspecialchars($q[1]) ?></p></details><?php endforeach; ?></div>
+  </div>
+</section>
+
+<nav class="jf-related section-alt" aria-label="Explore Job Flow">
+  <div class="container"><h2>Explore more</h2>
+    <div>
+      <a href="<?= BASE_URL ?>services.php">Outsourcing services</a>
+      <a href="<?= BASE_URL ?>talent_acquisition.php">Talent acquisition</a>
+      <a href="<?= BASE_URL ?>customer_support.php">Customer support</a>
+      <a href="<?= BASE_URL ?>about_us.php">About Job Flow</a>
+      <a href="<?= BASE_URL ?>team.php">Our team</a>
+    </div>
+  </div>
+</nav>
+
+<?php $status = $_GET['status'] ?? null;
+$msgs = ['success'=>['success','Message sent!','Thank you for contacting us. We will get back to you shortly.'],
+         'error'=>['error','Oops...','There was an error sending your message. Please try again later.'],
+         'invalid_email'=>['error','Invalid email','Please enter a valid email address.']];
+if ($status && isset($msgs[$status])): [$icon,$title,$text] = $msgs[$status]; ?>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  Swal.fire({ icon: <?= json_encode($icon) ?>, title: <?= json_encode($title) ?>, text: <?= json_encode($text) ?>, confirmButtonColor: '#f26b3a' });
+});
+</script>
+<?php endif; ?>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic' });</script>
 
 <?php require_once 'includes/footer.php'; ?>
-
-<?php
-// SweetAlert for success/error messages
-$status = $_GET['status'] ?? null;
-
-if ($status) {
-    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js'></script>";
-    echo "<script>
-        document.addEventListener('DOMContentLoaded', function() {";
-
-    switch ($status) {
-        case 'success':
-            echo "Swal.fire({
-                icon: 'success',
-                title: 'Message Sent!',
-                text: 'Thank you for contacting us. We will get back to you shortly.',
-                confirmButtonColor: '#3085d6'
-            });";
-            break;
-        case 'error':
-            echo "Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'There was an error sending your message. Please try again later.',
-                confirmButtonColor: '#d33'
-            });";
-            break;
-        case 'invalid_email':
-             echo "Swal.fire({
-                icon: 'error',
-                title: 'Invalid Email',
-                text: 'Please enter a valid email address.',
-                confirmButtonColor: '#d33'
-            });";
-            break;
-    }
-
-    echo "});
-    </script>";
-}
-?>
