@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
+const jfBoot = () => {
     // Safe Swiper init: skips missing elements and never double-initialises
     const initSwiper = (sel, opts) => {
         const el = document.querySelector(sel);
-        return el && !el.swiper ? new Swiper(el, opts) : null;
+        return el && typeof Swiper !== 'undefined' && !el.swiper ? new Swiper(el, opts) : null;
     };
     const nav = (s) => ({ nextEl: `${s} .swiper-button-next`, prevEl: `${s} .swiper-button-prev` });
     const pag = (s) => ({ el: `${s} .swiper-pagination`, clickable: true });
@@ -50,4 +50,5 @@ document.addEventListener('DOMContentLoaded', () => {
         dropdownItem.addEventListener('mouseenter', () => set(true));
         dropdownItem.addEventListener('mouseleave', () => set(false));
     }
-});
+};
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', jfBoot); else jfBoot();
