@@ -44,7 +44,26 @@ h3{font-family:var(--sans);font-weight:700;letter-spacing:-.01em}
 p{color:var(--muted)}
 :focus-visible{outline:none;box-shadow:var(--ring);border-radius:6px}
 ::selection{background:var(--accent);color:#fff}
+/* Hide skip link off-screen by default, show only when focused via Keyboard */
+.skip-link, 
+a[href="#main-content"],
+a[href="#content"] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: 9999;
+  padding: 1rem;
+  background: #ffffff;
+  color: #0f172a;
+  text-decoration: none;
+}
 
+.skip-link:focus, 
+a[href="#main-content"]:focus,
+a[href="#content"]:focus {
+  top: 0;
+  left: 0;
+}
 /* Header */
 .site-header{background:rgba(255,255,255,.86)!important;backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line);box-shadow:none!important;transition:padding .3s,box-shadow .3s}
 .site-header.scrolled{box-shadow:0 10px 30px -12px rgba(11,31,58,.25)!important}
