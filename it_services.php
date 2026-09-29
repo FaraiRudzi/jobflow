@@ -2,8 +2,8 @@
 require_once 'config.php';
 $svc = [
  'slug'=>'it_services','name'=>'IT Services & Support',
- 'title'=>'IT Support & Software Development Outsourcing | Job Flow',
- 'desc'=>'Outsource help desk, network management, software development and IT support to expert African teams. Improve security and efficiency with Job Flow.',
+ 'title'=>'IT Support & Software Development Outsourcing | JobFlow',
+ 'desc'=>'Outsource help desk, network management, software development and IT support to expert African teams. Improve security and efficiency with JobFlow.',
  'h1'=>'Information Technology Services',
  'lead'=>'Optimize your productivity by leveraging the expertise of our IT professionals. Focus on strategic business priorities while we manage essential tasks.',
  'groups'=>[['title'=>'Our core IT services','intro'=>'From development to support, we provide the technical expertise you need to thrive.','items'=>[
@@ -17,7 +17,7 @@ $svc = [
    ['Improved Security','Managed networks and expert IT support help protect your valuable data against threats and minimize costly downtime.','shield-halved'],
    ['Custom Solutions','Our programming and software development services provide tailored tools for your specific business needs.','screwdriver-wrench']]],
  'faqs'=>[
-  ['What IT services can I outsource to Job Flow?','We provide software development and maintenance, network management, help desk services, IT infrastructure support, and custom programming.'],
+  ['What IT services can I outsource to JobFlow?','We provide software development and maintenance, network management, help desk services, IT infrastructure support, and custom programming.'],
   ['Can you provide a help desk for my staff or customers?','Yes. Our help desk team supports end-users by phone, email or ticketing systems.'],
   ['How does outsourced IT improve security?','Managed networks and expert support help protect your data against threats and reduce costly downtime.']],
  'ext'=>[['NIST Cybersecurity','nist.gov','Trusted frameworks for managing cybersecurity risk.','https://www.nist.gov/cybersecurity'],['CISA','cisa.gov','US guidance on protecting networks and data.','https://www.cisa.gov']],

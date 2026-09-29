@@ -347,3 +347,52 @@ p{color:var(--muted)}
 .jf-totop:hover{background:var(--accent);border-color:var(--accent)}
 @media(max-width:1000px){.jf-foot-grid{grid-template-columns:1fr 1fr;gap:2.5rem}.jf-foot-brand{grid-column:1/-1}}
 @media(max-width:560px){.jf-foot-grid{grid-template-columns:1fr}.jf-foot-bottom{flex-direction:column-reverse;text-align:center}}
+
+/* ===== v9: services hub + privacy ===== */
+.jf-jump{position:sticky;top:78px;z-index:30;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.jf-jump .container{display:flex;gap:.5rem;overflow-x:auto;padding-block:.75rem;scrollbar-width:none}
+.jf-jump a{white-space:nowrap;padding:.45rem 1rem;border:1px solid var(--line);border-radius:999px;background:#fff;font-weight:600;font-size:.88rem;color:var(--navy);transition:all .2s}
+.jf-jump a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.jf-svcsec{scroll-margin-top:140px;padding:3.5rem 0}
+.jf-svc{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:center}
+.jf-svc h2{font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:.9rem}
+.jf-svc p{line-height:1.75;margin-bottom:1.1rem}
+.jf-benefits{list-style:none;margin:0 0 1.5rem;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.jf-benefits li{display:flex;align-items:center;gap:.45rem;padding:.4rem .9rem;border-radius:999px;background:var(--paper);border:1px solid var(--line);font-weight:600;font-size:.88rem;color:var(--navy)}
+.section-alt .jf-benefits li{background:#fff}
+.jf-benefits i{color:var(--accent);font-size:.75rem}
+.jf-mini{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.jf-mini article{display:flex;gap:.9rem;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.2rem;box-shadow:var(--sh-1);transition:transform .3s,box-shadow .3s}
+.section-alt .jf-mini article{background:#fff}
+.jf-mini article:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
+.jf-mini i{flex:none;width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:var(--navy);color:#fff}
+.jf-mini article:nth-child(odd) i{background:var(--accent)}
+.jf-mini h3{font-size:1rem;margin:0 0 .25rem}
+.jf-mini p{margin:0;font-size:.9rem;line-height:1.55}
+@media(max-width:900px){.jf-svc{grid-template-columns:1fr}.jf-jump{top:70px}}
+@media(max-width:560px){.jf-mini{grid-template-columns:1fr}}
+
+.jf-legal{display:grid;grid-template-columns:260px 1fr;gap:2.5rem;align-items:start}
+.jf-toc{position:sticky;top:100px;display:flex;flex-direction:column;gap:.15rem;padding:1.25rem;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh-1)}
+.jf-toc b{color:var(--navy);margin-bottom:.5rem}
+.jf-toc a{padding:.4rem .6rem;border-radius:8px;font-size:.9rem;color:var(--muted);transition:all .2s}
+.jf-toc a:hover{background:var(--paper);color:var(--accent)}
+.jf-policy{background:#fff;border:1px solid var(--line);border-radius:20px;padding:2.5rem;box-shadow:var(--sh-1)}
+.jf-updated{display:inline-flex;gap:.5rem;align-items:center;font-weight:600;font-size:.9rem;padding:.4rem .9rem;border-radius:999px;background:var(--paper);margin-bottom:1.5rem}
+.jf-policy section{padding-bottom:1.5rem;margin-bottom:1.5rem;border-bottom:1px solid var(--line);scroll-margin-top:110px}
+.jf-policy section:last-child{border:0;margin:0;padding:0}
+.jf-policy h2{font-size:1.5rem;margin-bottom:.75rem}
+.jf-policy h3{font-size:1.05rem;margin:1.2rem 0 .4rem}
+.jf-policy p,.jf-policy li{line-height:1.75;font-size:1rem}
+.jf-policy ul{margin:.75rem 0 0;padding-left:1.25rem;list-style:disc;color:var(--muted);display:grid;gap:.4rem}
+.jf-policy a{color:var(--navy);font-weight:600;border-bottom:2px solid rgba(242,107,58,.5)}.jf-policy a:hover{color:var(--accent)}
+.jf-policy blockquote{margin:0;padding:.25rem 0 .25rem 1.1rem;border-left:4px solid var(--accent);color:var(--muted);font-style:italic;line-height:1.75}
+.jf-addr{background:var(--paper);border-radius:12px;padding:1rem 1.25rem;margin-top:.75rem;line-height:1.7}
+@media(max-width:900px){.jf-legal{grid-template-columns:1fr}.jf-toc{position:static}.jf-policy{padding:1.5rem}}
+
+/* ===== v10: hero transparency + strip text visibility ===== */
+.jf-slide::before{background:radial-gradient(60% 50% at 50% 0%,rgba(242,107,58,.22),transparent 70%),linear-gradient(180deg,rgba(11,31,58,.42) 0%,rgba(11,31,58,.55) 45%,rgba(11,31,58,.78) 100%)}
+.jf-slide .jf-title,.jf-slide .lead{text-shadow:0 2px 24px rgba(11,31,58,.55)}
+.jf-strip{color:#fff}
+.jf-unique li{color:#fff;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22)}
+.jf-unique h2{color:rgba(255,255,255,.8)}

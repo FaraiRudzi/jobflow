@@ -2,7 +2,7 @@
 require_once 'config.php';
 $svc = [
  'slug'=>'finance_accounting','name'=>'Finance & Accounting Outsourcing',
- 'title'=>'Finance & Accounting Outsourcing | Job Flow',
+ 'title'=>'Finance & Accounting Outsourcing | JobFlow',
  'desc'=>'Outsource payroll, bookkeeping and financial analysis to skilled African accountants. Improve accuracy, cut costs and decide with confidence. Free consultation.',
  'h1'=>'Financial and Accounting Services',
  'lead'=>'Our finance and accounting services help businesses manage their financial operations efficiently and effectively, from payroll to financial analysis.',

@@ -2,8 +2,8 @@
 require_once 'config.php';
 $svc = [
  'slug'=>'talent_acquisition','name'=>'Talent Acquisition & Recruitment',
- 'title'=>'Talent Acquisition & Recruitment Outsourcing | Job Flow',
- 'desc'=>"Find the right talent with Job Flow's permanent recruitment, temporary staffing, executive search and recruitment outsourcing services. Free consultation.",
+ 'title'=>'Talent Acquisition & Recruitment Outsourcing | JobFlow',
+ 'desc'=>"Find the right talent with JobFlow's permanent recruitment, temporary staffing, executive search and recruitment outsourcing services. Free consultation.",
  'h1'=>'Find the Right Talent to Drive Your Success',
  'lead'=>'Our expert Talent Acquisition service provides comprehensive recruitment and staffing solutions, helping you build a stronger team and a more successful business.',
  'groups'=>[
@@ -23,7 +23,7 @@ $svc = [
    ['Conducting Interviews','We assist with conducting interviews, providing valuable insights to help you make an informed hiring decision.']]],
  'industries'=>[['Technology','images/tech.jpg'],['Healthcare','images/healthcare.jpg'],['Finance','images/finance.jpg'],['Manufacturing','images/manufacturing.webp']],
  'faqs'=>[
-  ['What recruitment services does Job Flow offer?','We offer permanent recruitment, temporary staffing, executive search and full recruitment outsourcing from sourcing to onboarding.'],
+  ['What recruitment services does JobFlow offer?','We offer permanent recruitment, temporary staffing, executive search and full recruitment outsourcing from sourcing to onboarding.'],
   ['How does your talent acquisition process work?','We understand your needs, source candidates through job boards, social media and professional networks, screen and shortlist the best, and assist with interviews.'],
   ['Which industries do you recruit for?','We recruit for technology, healthcare, finance and manufacturing, among other industries.']],
  'ext'=>[['SHRM','shrm.org','Society for Human Resource Management: hiring best practice.','https://www.shrm.org'],['International Labour Organization','ilo.org','Global standards and research on decent employment.','https://www.ilo.org']],

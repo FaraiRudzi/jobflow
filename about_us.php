@@ -1,12 +1,12 @@
 <?php
 require_once 'config.php';
 
-$pageTitle = 'About Job Flow | Outsourcing Company in Harare, Zimbabwe';
+$pageTitle = 'About JobFlow | Outsourcing Company';
 $currentPage = 'about';
-$pageDescription = 'Meet Job Flow Digital Solutions, a Harare outsourcing company connecting global businesses with skilled African professionals. Our story, vision, mission and values.';
+$pageDescription = 'Meet JobFlow Digital Solutions, an outsourcing company connecting global businesses with skilled African professionals. Our story, vision, mission and values.';
 $site = defined('SITE_URL') ? SITE_URL : rtrim(BASE_URL, '/');
 $extraSchema = ['@context'=>'https://schema.org','@graph'=>[
-  ['@type'=>'AboutPage','name'=>'About Job Flow Digital Solutions','url'=>$site.'/about_us.php','description'=>$pageDescription,'about'=>['@type'=>'Organization','name'=>'Job Flow Digital Solutions','url'=>$site]],
+  ['@type'=>'AboutPage','name'=>'About JobFlow Digital Solutions','url'=>$site.'/about_us.php','description'=>$pageDescription,'about'=>['@type'=>'Organization','name'=>'JobFlow Digital Solutions','url'=>$site]],
   ['@type'=>'BreadcrumbList','itemListElement'=>[
     ['@type'=>'ListItem','position'=>1,'name'=>'Home','item'=>$site.'/index.php'],
     ['@type'=>'ListItem','position'=>2,'name'=>'About Us','item'=>$site.'/about_us.php']]],
@@ -28,8 +28,8 @@ require_once 'includes/header.php';
     <nav class="jf-crumbs" aria-label="Breadcrumb">
       <a href="<?= BASE_URL ?>index.php">Home</a><span aria-hidden="true">/</span><span aria-current="page">About us</span>
     </nav>
-    <h1 class="jf-title">About Job Flow: transforming business and empowering the world</h1>
-    <p class="lead">We are an <a href="<?= BASE_URL ?>services.php">outsourcing company in Harare, Zimbabwe</a> that connects global businesses with skilled, university-educated African professionals.</p>
+    <h1 class="jf-title">About JobFlow: transforming business and empowering the world</h1>
+    <p class="lead">We are an <a href="<?= BASE_URL ?>services.php">outsourcing company </a> that connects global businesses with skilled, university-educated African professionals.</p>
     <div class="hero-actions">
       <a href="<?= BASE_URL ?>contact.php#contact" class="primary-btn">Talk to our team</a>
       <a href="<?= BASE_URL ?>team.php" class="secondary-btn">Meet the team</a>
@@ -42,11 +42,11 @@ require_once 'includes/header.php';
     <div data-aos="fade-right">
       <span class="eyebrow">Our story</span>
       <h2>Global businesses. African talent. One win-win.</h2>
-      <p>At Job Flow Digital Solutions, we saw an opportunity to connect global businesses with the incredible talent pool worldwide. We are more than an outsourcing provider: we are a <strong>pioneering force for economic empowerment</strong>.</p>
+      <p>At JobFlow Digital Solutions, we saw an opportunity to connect global businesses with the incredible talent pool worldwide. We are more than an outsourcing provider: we are a <strong>pioneering force for economic empowerment</strong>.</p>
       <p>By bridging the gap between businesses seeking top-tier talent and highly educated professionals in Africa, we enhance productivity and offer dignified opportunities that foster growth and self-worth. Explore our <a href="<?= BASE_URL ?>talent_acquisition.php" class="jf-link">talent acquisition</a>, <a href="<?= BASE_URL ?>customer_support.php" class="jf-link">customer support</a> and <a href="<?= BASE_URL ?>bpo.php" class="jf-link">BPO services</a>.</p>
     </div>
     <figure class="jf-figure" data-aos="fade-left">
-      <img src="<?= BASE_URL ?>images/professionals.png" alt="African professionals at Job Flow Digital Solutions delivering outsourcing services" width="800" height="600" loading="lazy">
+      <img src="<?= BASE_URL ?>images/professionals.png" alt="African professionals at JobFlow Digital Solutions delivering outsourcing services" width="800" height="600" loading="lazy">
     </figure>
   </div>
 </section>
@@ -54,7 +54,7 @@ require_once 'includes/header.php';
 <section class="section-alt">
   <div class="container jf-split rev">
     <figure class="jf-figure" data-aos="fade-right">
-      <img src="<?= BASE_URL ?>images/vision.jpg" alt="Job Flow vision: a global leader in business process outsourcing" width="800" height="600" loading="lazy">
+      <img src="<?= BASE_URL ?>images/vision.jpg" alt="JobFlow vision: a global leader in business process outsourcing" width="800" height="600" loading="lazy">
     </figure>
     <div data-aos="fade-left">
       <span class="eyebrow">Our vision</span>
@@ -73,7 +73,7 @@ require_once 'includes/header.php';
       <a href="<?= BASE_URL ?>services.php" class="primary-btn">See our services</a>
     </div>
     <figure class="jf-figure" data-aos="fade-left">
-      <img src="<?= BASE_URL ?>images/mission.jpg" alt="Job Flow mission: empowering businesses with scalable outsourcing solutions" width="800" height="600" loading="lazy">
+      <img src="<?= BASE_URL ?>images/mission.jpg" alt="JobFlow mission: empowering businesses with scalable outsourcing solutions" width="800" height="600" loading="lazy">
     </figure>
   </div>
 </section>

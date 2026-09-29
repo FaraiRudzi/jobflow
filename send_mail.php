@@ -30,8 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
-        $mail->setFrom('farairudzi01@gmail.com', 'Job Flow');
-        $mail->addAddress('farairudzi01@gmail.com', 'Job Flow');
+        $mail->setFrom('farairudzi01@gmail.com', 'JobFlow');
+        $mail->addAddress('farairudzi01@gmail.com', 'JobFlow');
         $mail->addReplyTo($email, $name);
 
         $mail->isHTML(true);

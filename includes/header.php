@@ -1,21 +1,23 @@
 <?php
+/** @var string|null $currentPage Set by the including page */
+$currentPage = $currentPage ?? '';
 $pageMeta = [
- 'index.php'=>['Job Flow Digital Solutions | Outsourcing & African Talent','Job Flow Digital Solutions connects global businesses with skilled African talent through reliable outsourcing, customer support, IT, finance, and digital services.'],
- 'about_us.php'=>['About Job Flow Digital Solutions | Global Talent Partner','Learn how Job Flow Digital Solutions empowers businesses and African professionals through ethical, scalable outsourcing partnerships.'],
- 'services.php'=>['Outsourcing Services for Growing Businesses | Job Flow','Explore Job Flow services, including talent acquisition, IT support, finance and accounting, dental support, BPO, and customer service outsourcing.'],
- 'contact.php'=>['Contact Job Flow Digital Solutions','Talk to Job Flow Digital Solutions about dependable outsourcing, skilled African talent, and tailored support for your business.'],
- 'team.php'=>['Meet the Job Flow Digital Solutions Team','Meet the people behind Job Flow Digital Solutions and our commitment to excellent global outsourcing partnerships.'],
- 'talent_acquisition.php'=>['Talent Acquisition Services | Job Flow','Find and retain qualified professionals with Job Flow talent acquisition support for growing businesses.'],
- 'it_services.php'=>['IT Services and Technical Support | Job Flow','Strengthen your operations with responsive IT services and technical support from Job Flow Digital Solutions.'],
- 'finance_accounting.php'=>['Finance and Accounting Outsourcing | Job Flow','Improve financial accuracy and efficiency with Job Flow finance and accounting outsourcing services.'],
- 'bpo.php'=>['Business Process Outsourcing Services | Job Flow','Scale efficiently with flexible business process outsourcing delivered by Job Flow Digital Solutions.'],
- 'customer_support.php'=>['Customer Support Outsourcing | Job Flow','Deliver better customer experiences with dependable, professional customer support outsourcing from Job Flow.'],
- 'dental_services.php'=>['Dental Practice Support Services | Job Flow','Give your dental practice reliable administrative and operational support through Job Flow outsourcing services.'],
- 'other_services.php'=>['Business Support Services | Job Flow','Discover additional business support services tailored to your operational needs by Job Flow Digital Solutions.'],
- 'privacy_policy.php'=>['Privacy Policy | Job Flow Digital Solutions','Read the Job Flow Digital Solutions privacy policy and learn how we handle personal information.'],
+ 'index.php'=>['JobFlow Digital Solutions | Outsourcing & African Talent','JobFlow Digital Solutions connects global businesses with skilled African talent through reliable outsourcing, customer support, IT, finance, and digital services.'],
+ 'about_us.php'=>['About JobFlow Digital Solutions | Global Talent Partner','Learn how JobFlow Digital Solutions empowers businesses and African professionals through ethical, scalable outsourcing partnerships.'],
+ 'services.php'=>['Outsourcing Services for Growing Businesses | JobFlow','Explore JobFlow services, including talent acquisition, IT support, finance and accounting, dental support, BPO, and customer service outsourcing.'],
+ 'contact.php'=>['Contact JobFlow Digital Solutions','Talk to JobFlow Digital Solutions about dependable outsourcing, skilled African talent, and tailored support for your business.'],
+ 'team.php'=>['Meet the JobFlow Digital Solutions Team','Meet the people behind JobFlow Digital Solutions and our commitment to excellent global outsourcing partnerships.'],
+ 'talent_acquisition.php'=>['Talent Acquisition Services | JobFlow','Find and retain qualified professionals with JobFlow talent acquisition support for growing businesses.'],
+ 'it_services.php'=>['IT Services and Technical Support | JobFlow','Strengthen your operations with responsive IT services and technical support from JobFlow Digital Solutions.'],
+ 'finance_accounting.php'=>['Finance and Accounting Outsourcing | JobFlow','Improve financial accuracy and efficiency with JobFlow finance and accounting outsourcing services.'],
+ 'bpo.php'=>['Business Process Outsourcing Services | JobFlow','Scale efficiently with flexible business process outsourcing delivered by JobFlow Digital Solutions.'],
+ 'customer_support.php'=>['Customer Support Outsourcing | JobFlow','Deliver better customer experiences with dependable, professional customer support outsourcing from JobFlow.'],
+ 'dental_services.php'=>['Dental Practice Support Services | JobFlow','Give your dental practice reliable administrative and operational support through JobFlow outsourcing services.'],
+ 'other_services.php'=>['Business Support Services | JobFlow','Discover additional business support services tailored to your operational needs by JobFlow Digital Solutions.'],
+ 'privacy_policy.php'=>['Privacy Policy | JobFlow Digital Solutions','Read the JobFlow Digital Solutions privacy policy and learn how we handle personal information.'],
 ];
 $currentFile = basename($_SERVER['SCRIPT_NAME'] ?? 'index.php');
-$m = $pageMeta[$currentFile] ?? ['Job Flow Digital Solutions | Global Outsourcing Partner','Job Flow Digital Solutions helps businesses grow with skilled African talent and practical outsourcing solutions.'];
+$m = $pageMeta[$currentFile] ?? ['JobFlow Digital Solutions | Global Outsourcing Partner','JobFlow Digital Solutions helps businesses grow with skilled African talent and practical outsourcing solutions.'];
 $pageTitle = $pageTitle ?? $m[0];
 $pageDescription = $pageDescription ?? $m[1];
 $siteUrl = defined('SITE_URL') ? SITE_URL : rtrim(BASE_URL, '/');
@@ -34,7 +36,7 @@ $isService = array_key_exists($currentPage ?? '', $services);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= $e($pageTitle) ?></title>
 <meta name="description" content="<?= $e($pageDescription) ?>">
-<meta name="author" content="Job Flow Digital Solutions">
+<meta name="author" content="JobFlow Digital Solutions">
 <meta name="theme-color" content="#0b1f3a">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="<?= $e($canonicalUrl) ?>">
@@ -43,7 +45,7 @@ $isService = array_key_exists($currentPage ?? '', $services);
 <meta name="geo.region" content="ZW-HA"><meta name="geo.placename" content="Harare, Zimbabwe">
 <?php if (($currentPage ?? '') === 'home'): ?><link rel="preload" as="image" href="<?= BASE_URL ?>images/professionals.png" fetchpriority="high"><?php endif; ?>
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Job Flow Digital Solutions">
+<meta property="og:site_name" content="JobFlow Digital Solutions">
 <meta property="og:title" content="<?= $e($pageTitle) ?>">
 <meta property="og:description" content="<?= $e($pageDescription) ?>">
 <meta property="og:url" content="<?= $e($canonicalUrl) ?>">
@@ -65,12 +67,12 @@ $isService = array_key_exists($currentPage ?? '', $services);
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<link rel="stylesheet" href="<?= BASE_URL ?>css/style.css?v=<?= @filemtime(__DIR__ . "/../css/style.css") ?: time() ?>">
+<link rel="stylesheet" href="<?= BASE_URL ?>css/style.css?v=<?= @filemtime(__DIR__ . "/../css/premium.css") ?: time() ?>">
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <style>[x-cloak]{display:none!important}</style>
 <?php
 $offers = array_map(fn($f,$l)=>['@type'=>'Offer','itemOffered'=>['@type'=>'Service','name'=>$l,'url'=>$siteUrl.'/'.$f.'.php']], array_keys($services), $services);
-$org = ['@context'=>'https://schema.org','@type'=>'ProfessionalService','name'=>'Job Flow Digital Solutions','url'=>$siteUrl,'logo'=>$socialImage,'image'=>$socialImage,
+$org = ['@context'=>'https://schema.org','@type'=>'ProfessionalService','name'=>'JobFlow Digital Solutions','url'=>$siteUrl,'logo'=>$socialImage,'image'=>$socialImage,
  'description'=>'Outsourcing company in Harare, Zimbabwe providing skilled African talent for customer support, IT, finance and accounting, dental practice support and BPO.',
  'address'=>['@type'=>'PostalAddress','addressLocality'=>'Harare','addressCountry'=>'ZW'],'telephone'=>'+263714384422','email'=>'info@jobflow.com','areaServed'=>'Worldwide',
  'knowsAbout'=>['Outsourcing','Business process outsourcing','Customer support outsourcing','Virtual assistants','Remote teams','Talent acquisition','Accounting outsourcing','IT support'],
@@ -86,8 +88,8 @@ $org = ['@context'=>'https://schema.org','@type'=>'ProfessionalService','name'=>
 
 <header class="site-header sticky top-0 z-50 py-3">
   <div class="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-10 xl:px-14 flex items-center justify-between">
-    <a href="<?= BASE_URL ?>index.php" class="flex items-center gap-3" aria-label="Job Flow Home">
-      <img src="<?= BASE_URL ?>images/logo2.png" alt="Job Flow Digital Solutions logo - outsourcing company in Harare, Zimbabwe" class="h-14 md:h-16 w-auto">
+    <a href="<?= BASE_URL ?>index.php" class="flex items-center gap-3" aria-label="JobFlow Home">
+      <img src="<?= BASE_URL ?>images/logo2.png" alt="JobFlow Digital Solutions logo - outsourcing company in Harare, Zimbabwe" class="h-14 md:h-16 w-auto">
       <span class="hidden md:block font-bold text-lg" style="color:var(--navy)">JobFlow <span class="font-medium" style="color:var(--muted)">Digital Solutions</span></span>
     </a>
 

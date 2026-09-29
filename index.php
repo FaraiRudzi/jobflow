@@ -1,13 +1,13 @@
 <?php
 require_once 'config.php';
-$pageTitle = 'Outsourcing Company in Zimbabwe | African Talent | Job Flow';
+$pageTitle = 'Outsourcing Company in Zimbabwe | African Talent | JobFlow';
 $currentPage = 'home';
-$pageDescription = 'Job Flow Digital Solutions is a Harare outsourcing company providing skilled African talent for customer support, IT, finance, dental and BPO. Save up to 70%.';
+$pageDescription = 'JobFlow Digital Solutions is a Harare outsourcing company providing skilled African talent for customer support, IT, finance, dental and BPO. Save up to 70%.';
 $faqs = [
- ['What is Job Flow Digital Solutions?','Job Flow Digital Solutions is an outsourcing company. We connect businesses worldwide with skilled African professionals for customer support, IT, finance and accounting, dental practice support, talent acquisition and business process outsourcing (BPO).'],
+ ['What is JobFlow Digital Solutions?','JobFlow Digital Solutions is an outsourcing company. We connect businesses worldwide with skilled African professionals for customer support, IT, finance and accounting, dental practice support, talent acquisition and business process outsourcing (BPO).'],
  ['How much can I save by outsourcing to Africa?','Clients can save up to 70% compared with traditional in-house hiring, depending on the role, experience level and scope of work. Book a consultation and we will scope the exact cost for your team.'],
- ['Which outsourcing services does Job Flow offer?','We offer talent acquisition, IT support, finance and accounting outsourcing, dental practice support, customer support outsourcing, virtual assistants and end-to-end BPO solutions.'],
- ['Can Job Flow support dental practices?','Yes. Our dental practice support teams handle front-office administration and operational tasks so your clinicians can focus on patients and practice growth.'],
+ ['Which outsourcing services does JobFlow offer?','We offer talent acquisition, IT support, finance and accounting outsourcing, dental practice support, customer support outsourcing, virtual assistants and end-to-end BPO solutions.'],
+ ['Can JobFlow support dental practices?','Yes. Our dental practice support teams handle front-office administration and operational tasks so your clinicians can focus on patients and practice growth.'],
  ['How do I get started with outsourcing?','Contact us to book a consultation. We assess your goals and workflows, build the right team, launch with onboarding and SOPs, and keep improving performance. We respond within 24 hours.'],
 ];
 $extraSchema = [
@@ -32,7 +32,7 @@ require_once 'includes/header.php';
         <div class="swiper-wrapper">
             <?php
             $slides = [
-              ['h1','images/professionals.png','Team of African professionals providing remote outsourcing services for global businesses','Outsourcing to skilled African talent, built for growing businesses','Job Flow Digital Solutions is an outsourcing company in Harare, Zimbabwe. We place dedicated remote professionals in customer support, IT, finance, dental administration and executive support, at up to 70% lower cost than traditional hiring.','contact.php','Book a consultation','services.php','Explore outsourcing services'],
+              ['h1','images/professionals.png','Team of African professionals providing remote outsourcing services for global businesses','Outsourcing to skilled African talent, built for growing businesses','JobFlow Digital Solutions is an outsourcing company. We place dedicated remote professionals in customer support, IT, finance, dental administration and executive support, at up to 70% lower cost than traditional hiring.','contact.php','Book a consultation','services.php','Explore outsourcing services'],
               ['h2','images/customer.png','Customer support agent wearing a headset assisting international clients','Customer support and virtual assistants who work like your own team','Friendly, well-trained agents handle your calls, chats and inbox, so customers get fast answers and your staff can focus on growth.','customer_support.php','See customer support outsourcing','contact.php','Talk to our team'],
               ['h2','images/it.png','Finance and IT specialists collaborating at laptops in a modern office','Finance, IT and dental practice support at a fraction of the cost','Bookkeeping, technical support and front-office administration from trained specialists who plug straight into your workflow.','finance_accounting.php','Explore finance outsourcing','dental_services.php','Dental practice support'],
             ];
@@ -84,7 +84,7 @@ require_once 'includes/header.php';
         <div data-aos="fade-right">
             <span class="eyebrow">Why partner with us</span>
             <h2>Africa's outsourcing partner for remote teams you can trust.</h2>
-            <p>As a Harare-based <a href="<?= BASE_URL ?>bpo.php" class="jf-link">business process outsourcing company</a>, we streamline repetitive work, shorten turnaround times and free your team to focus on growth. Whether you need one virtual assistant or a full outsourcing division, we build a team that scales with you. Explore our <a href="<?= BASE_URL ?>services.php" class="jf-link">outsourcing services</a> or meet <a href="<?= BASE_URL ?>team.php" class="jf-link">the team behind Job Flow</a>.</p>
+            <p>As a <a href="<?= BASE_URL ?>bpo.php" class="jf-link">business process outsourcing company</a>, we streamline repetitive work, shorten turnaround times and free your team to focus on growth. Whether you need one virtual assistant or a full outsourcing division, we build a team that scales with you. Explore our <a href="<?= BASE_URL ?>services.php" class="jf-link">outsourcing services</a> or meet <a href="<?= BASE_URL ?>team.php" class="jf-link">the team behind JobFlow</a>.</p>
             <a href="<?= BASE_URL ?>about_us.php" class="primary-btn">Learn about us</a>
         </div>
         <div class="jf-panel" data-aos="fade-left">
@@ -174,7 +174,7 @@ if (!empty($testimonials)):
     <div class="container">
         <div class="section-head" data-aos="fade-up">
             <span class="eyebrow">Client feedback</span>
-            <h2>What businesses say after partnering with Job Flow.</h2>
+            <h2>What businesses say after partnering with JobFlow.</h2>
         </div>
         <div class="swiper testimonials-slider">
             <div class="swiper-wrapper">

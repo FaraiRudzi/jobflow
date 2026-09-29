@@ -4,7 +4,7 @@
   <div class="container">
     <div class="jf-foot-grid">
       <div class="jf-foot-brand">
-        <h4>Job Flow Digital Solutions</h4>
+        <h4>JobFlow Digital Solutions</h4>
         <p>Connecting businesses with skilled African professionals to boost productivity and drive growth worldwide.</p>
         <div class="jf-social">
           <?php foreach ([['facebook-f','https://www.facebook.com/yourjobflowpage','Facebook'],['twitter','https://twitter.com/yourjobflowhandle','Twitter'],['instagram','https://www.instagram.com/job_flow_digital_solutions?igsh=MWViMmJvMGQ0NGM5NQ%3D%3D&utm_source=qr','Instagram'],['linkedin-in','https://www.linkedin.com/company/yourjobflowcompany','LinkedIn']] as [$i,$u,$n]): ?>
@@ -25,7 +25,7 @@
       <nav aria-label="Company">
         <h4>Company</h4>
         <ul>
-          <?php foreach (['index'=>'Home','about_us'=>'About Job Flow','services'=>'All Services','team'=>'Our Team','contact'=>'Contact Us','privacy_policy'=>'Privacy Policy'] as $f=>$l): ?>
+          <?php foreach (['index'=>'Home','about_us'=>'About JobFlow','services'=>'All Services','team'=>'Our Team','contact'=>'Contact Us','privacy_policy'=>'Privacy Policy'] as $f=>$l): ?>
             <li><a href="<?= BASE_URL.$f ?>.php"><?= $l ?></a></li>
           <?php endforeach; ?>
         </ul>
@@ -44,7 +44,7 @@
     </div>
 
     <div class="jf-foot-bottom">
-      <p>&copy; <?= date('Y') ?> Job Flow Digital Solutions. All rights reserved.</p>
+      <p>&copy; <?= date('Y') ?> JobFlow Digital Solutions. All rights reserved.</p>
       <a href="#top" aria-label="Back to top" class="jf-totop"><i class="fas fa-arrow-up"></i></a>
     </div>
   </div>

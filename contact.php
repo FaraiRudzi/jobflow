@@ -1,18 +1,18 @@
 <?php
 require_once 'config.php';
 
-$pageTitle = 'Contact Job Flow | Outsourcing in Harare, Zimbabwe';
+$pageTitle = 'Contact JobFlow | Outsourcing in Harare, Zimbabwe';
 $currentPage = 'contact';
-$pageDescription = 'Contact Job Flow Digital Solutions in Harare for a free consultation on outsourcing, skilled African talent and tailored business support. We reply within 24 hours.';
+$pageDescription = 'Contact JobFlow Digital Solutions in Harare for a free consultation on outsourcing, skilled African talent and tailored business support. We reply within 24 hours.';
 $site = defined('SITE_URL') ? SITE_URL : rtrim(BASE_URL, '/');
 $faqs = [
-  ['How quickly will Job Flow respond to my message?','We aim to respond to every enquiry within 24 hours.'],
+  ['How quickly will JobFlow respond to my message?','We aim to respond to every enquiry within 24 hours.'],
   ['Is the consultation really free?','Yes. Your first consultation is free and comes with no obligation. We listen to your goals and recommend the right outsourcing model.'],
-  ['Where is Job Flow based?','Job Flow Digital Solutions is based in Harare, Zimbabwe, and serves businesses worldwide. You can reach us by form, email, phone or WhatsApp.'],
+  ['Where is JobFlow based?','JobFlow Digital Solutions is based in Harare, Zimbabwe, and serves businesses worldwide. You can reach us by form, email, phone or WhatsApp.'],
 ];
 $extraSchema = ['@context'=>'https://schema.org','@graph'=>[
-  ['@type'=>'ContactPage','name'=>'Contact Job Flow Digital Solutions','url'=>$site.'/contact.php','description'=>$pageDescription,
-   'about'=>['@type'=>'ProfessionalService','name'=>'Job Flow Digital Solutions','email'=>'info@jobflow.com','telephone'=>'+263714384422','address'=>['@type'=>'PostalAddress','addressLocality'=>'Harare','addressCountry'=>'ZW'],
+  ['@type'=>'ContactPage','name'=>'Contact JobFlow Digital Solutions','url'=>$site.'/contact.php','description'=>$pageDescription,
+   'about'=>['@type'=>'ProfessionalService','name'=>'JobFlow Digital Solutions','email'=>'info@jobflow.com','telephone'=>'+263714384422','address'=>['@type'=>'PostalAddress','addressLocality'=>'Harare','addressCountry'=>'ZW'],
      'contactPoint'=>[['@type'=>'ContactPoint','telephone'=>'+263714384422','contactType'=>'customer service'],['@type'=>'ContactPoint','telephone'=>'+13219782455','contactType'=>'sales']]]],
   ['@type'=>'BreadcrumbList','itemListElement'=>[['@type'=>'ListItem','position'=>1,'name'=>'Home','item'=>$site.'/index.php'],['@type'=>'ListItem','position'=>2,'name'=>'Contact','item'=>$site.'/contact.php']]],
   ['@type'=>'FAQPage','mainEntity'=>array_map(fn($q)=>['@type'=>'Question','name'=>$q[0],'acceptedAnswer'=>['@type'=>'Answer','text'=>$q[1]]], $faqs)],
@@ -23,7 +23,7 @@ require_once 'includes/header.php';
 <section class="jf-pagehero">
   <div class="container">
     <nav class="jf-crumbs" aria-label="Breadcrumb"><a href="<?= BASE_URL ?>index.php">Home</a><span aria-hidden="true">/</span><span aria-current="page">Contact</span></nav>
-    <h1 class="jf-title">Get in touch with Job Flow</h1>
+    <h1 class="jf-title">Get in touch with JobFlow</h1>
     <p class="lead">We'd love to hear from you. Send us a message and our team will get back to you promptly, usually within 24 hours.</p>
   </div>
 </section>
@@ -58,14 +58,14 @@ require_once 'includes/header.php';
         <a href="https://wa.me/13219782455" target="_blank" rel="noopener" class="wa-btn"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
       </aside>
     </div>
-    <p class="jf-disclaimer"><strong>Disclaimer:</strong> The information you provide will only be used to respond to your inquiry. Job Flow will never share your details with third parties without your explicit consent.</p>
+    <p class="jf-disclaimer"><strong>Disclaimer:</strong> The information you provide will only be used to respond to your inquiry. JobFlow will never share your details with third parties without your explicit consent.</p>
   </div>
 </section>
 
 <section class="section-alt">
   <div class="container">
     <div class="section-head narrow"><span class="eyebrow">Find us</span><h2>Our office in Harare, Zimbabwe.</h2></div>
-    <div class="jf-map"><iframe title="Job Flow Digital Solutions location in Harare, Zimbabwe" src="https://www.google.com/maps?q=Harare,+Zimbabwe&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+    <div class="jf-map"><iframe title="JobFlow Digital Solutions location in Harare, Zimbabwe" src="https://www.google.com/maps?q=Harare,+Zimbabwe&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
   </div>
 </section>
 
@@ -76,13 +76,13 @@ require_once 'includes/header.php';
   </div>
 </section>
 
-<nav class="jf-related section-alt" aria-label="Explore Job Flow">
+<nav class="jf-related section-alt" aria-label="Explore JobFlow">
   <div class="container"><h2>Explore more</h2>
     <div>
       <a href="<?= BASE_URL ?>services.php">Outsourcing services</a>
       <a href="<?= BASE_URL ?>talent_acquisition.php">Talent acquisition</a>
       <a href="<?= BASE_URL ?>customer_support.php">Customer support</a>
-      <a href="<?= BASE_URL ?>about_us.php">About Job Flow</a>
+      <a href="<?= BASE_URL ?>about_us.php">About JobFlow</a>
       <a href="<?= BASE_URL ?>team.php">Our team</a>
     </div>
   </div>
